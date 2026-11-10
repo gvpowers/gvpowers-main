@@ -1,0 +1,84 @@
+/* ============================================================
+   GV POWERS — THEME 13 · NORDIC MINIMAL
+   Scandinavian quiet: warm paper, charcoal text, one muted
+   ochre signal colour, generous whitespace, precise hairlines,
+   modest rounded corners. Nothing shouts.
+   ============================================================ */
+
+html[data-theme="nordic-minimal"] {
+  --bg: #F5F3EF;
+  --bg-alt: #ECEAE4;
+  --surface: #FFFFFF;
+  --surface-2: #F0EEEA;
+  --ink: #23241F;
+  --ink-soft: #71736B;
+  --headline: #23241F;
+  --on-dark: #F5F3EF;
+  --ivory: #F5F3EF;
+  --line: #E1DFD8;
+  --line-strong: #C3C1B9;
+  --sage: #C99B3F;
+  --sage-deep: #A87F2C;
+  --sage-dark: #7A5A1C;
+  --sand: #DCCBAE;
+  --sand-soft: #EDE6D8;
+  --deep: #2B2C27;
+  --card-surface: #FFFFFF;
+  --border-subtle: #E1DFD8;
+  --accent: #23241F;
+  --accent-contrast: #F5F3EF;
+  --nav-bg: #F5F3EF;
+  --nav-line: #E1DFD8;
+  --footer-bg: #FFFFFF;
+  --radius-lg: 14px;
+  --radius-md: 11px;
+  --radius-sm: 8px;
+  --btn-radius: 8px;
+  --font-head: "Manrope", "Segoe UI", sans-serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --font-head-weight: 500;
+}
+
+/* Gentle Nordic header */
+html[data-theme="nordic-minimal"] .section-title { font-weight: 500; letter-spacing: -0.01em; }
+html[data-theme="nordic-minimal"] .eyebrow { color: #A87F2C; }
+html[data-theme="nordic-minimal"] .eyebrow::before { width: 18px; height: 2px; background: #C99B3F; }
+
+/* Imagery: numbered captions rendered discreetly grey */
+html[data-theme="nordic-minimal"] .framed-image { border-color: #E1DFD8; }
+html[data-theme="nordic-minimal"] .framed-image img { filter: saturate(0.9) contrast(0.98) brightness(1.02); border-radius: 12px; }
+
+/* Cards: soft surfaces, tiny radii, weightless hover */
+html[data-theme="nordic-minimal"] .glass-card:hover { box-shadow: 0 14px 30px rgba(35, 36, 31, 0.09); }
+
+/* Buttons: black on paper, hover lifts gently */
+html[data-theme="nordic-minimal"] .btn--primary { background: #23241F; }
+html[data-theme="nordic-minimal"] .btn--dark { background: #2B2C27; }
+html[data-theme="nordic-minimal"] .btn--glass { border-color: #C3C1B9; }
+html[data-theme="nordic-minimal"] .btn--glass:hover { border-color: #23241F; background: #EDE6D8; }
+html[data-theme="nordic-minimal"] .btn--catalogue { border-color: #C3C1B9; }
+html[data-theme="nordic-minimal"] .btn--catalogue:hover { background: #EDE6D8; }
+
+/* Stats: light card with soft numbers, wider letter spacing */
+html[data-theme="nordic-minimal"] .stats-panel { background: #FFFFFF; }
+html[data-theme="nordic-minimal"] .stat__label { font-size: 0.66rem; letter-spacing: 0.18em; }
+html[data-theme="nordic-minimal"] .stat__value,
+html[data-theme="nordic-minimal"] .projects-stat strong { color: #23241F; font-weight: 700; }
+html[data-theme="nordic-minimal"] .projects-stat strong { color: #A87F2C; }
+html[data-theme="nordic-minimal"] .projects-stat__text { color: #23241F; }
+html[data-theme="nordic-minimal"] .stat + .stat::before { background: #E1DFD8; }
+
+html[data-theme="nordic-minimal"] ::selection { background: #C99B3F; color: #FFFFFF; }
+html[data-theme="nordic-minimal"] .check-list .icon { background: #EDE6D8; color: #7A5A1C; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="nordic-minimal"] {
+  --cta-bg: #C99B3F;
+  --cta-text: #23241F;
+  --cta-border: rgba(35, 36, 31, 0);
+  --cta-hover-bg: #D9B25C;
+  --cta-hover-text: #23241F;
+  --cta-hover-border: rgba(35, 36, 31, 0);
+  --cta-focus: #FFFFFF;
+  --cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+}

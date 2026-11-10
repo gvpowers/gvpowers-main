@@ -1,0 +1,114 @@
+/* ============================================================
+   GV POWERS — THEME 15 · MODERN ENERGY PORTFOLIO (SOLAR)
+   Confident solar identity: sky-tinted canvas, deep green ink,
+   sun-gold accents, uppercase eyebrow-to-title pipeline,
+   product-first Temu-style crispness.
+   ============================================================ */
+
+html[data-theme="modern-energy-portfolio"] {
+  --bg: #F6F8F4;
+  --bg-alt: #E9F0E4;
+  --surface: #FFFFFF;
+  --surface-2: #F0F5EC;
+  --ink: #1A2417;
+  --ink-soft: #5D6E58;
+  --headline: #142A12;
+  --on-dark: #F6F8F4;
+  --ivory: #F6F8F4;
+  --line: #D7E1D2;
+  --line-strong: #A9BB9F;
+  --sage: #2E8B57;
+  --sage-deep: #226B42;
+  --sage-dark: #175430;
+  --sand: #F5A623;
+  --sand-soft: #FCEBC8;
+  --deep: #10291D;
+  --card-surface: #FFFFFF;
+  --border-subtle: #D7E1D2;
+  --accent: #2E8B57;
+  --accent-contrast: #FFFFFF;
+  --nav-bg: #F6F8F4;
+  --nav-line: #D7E1D2;
+  --footer-bg: #10291D;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 9px;
+  --btn-radius: 9px;
+  --font-head: "Archivo", "Segoe UI", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --shadow-soft: 0 6px 18px rgba(23, 84, 48, 0.08);
+  --shadow-lift: 0 18px 38px rgba(23, 84, 48, 0.15);
+}
+
+/* Sun-gold brand accents in nav */
+html[data-theme="modern-energy-portfolio"] .brand__est { color: #C9820A; border-left-color: #F5A623; }
+html[data-theme="modern-energy-portfolio"] .glass-button { background: #2E8B57; color: #fff; }
+html[data-theme="modern-energy-portfolio"] .glass-button:hover { background: #226B42; }
+
+/* Uppercase pipeline eyebrow */
+html[data-theme="modern-energy-portfolio"] .eyebrow { color: #2E8B57; letter-spacing: 0.2em; }
+html[data-theme="modern-energy-portfolio"] .eyebrow::before {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #F5A623;
+}
+
+/* Product-first cards */
+html[data-theme="modern-energy-portfolio"] .glass-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift), 0 0 0 2px rgba(46, 139, 87, 0.25); }
+
+/* Radiant stats: green-on-cream */
+html[data-theme="modern-energy-portfolio"] .stats-panel {
+  background: linear-gradient(150deg, #FFFFFF, #F0F5EC);
+}
+html[data-theme="modern-energy-portfolio"] .stat__value { color: #175430; }
+html[data-theme="modern-energy-portfolio"] .projects-stat strong { color: #C9820A; font-weight: 800; }
+html[data-theme="modern-energy-portfolio"] .projects-stat__text { color: #142A12; }
+html[data-theme="modern-energy-portfolio"] .stat + .stat::before { background: #D7E1D2; }
+
+/* Airy hero capped with warm gold wash */
+html[data-theme="modern-energy-portfolio"] .hero__overlay {
+  background:
+    linear-gradient(90deg, rgba(16, 41, 29, 0.72) 0%, rgba(16, 41, 29, 0.5) 42%, rgba(245, 166, 35, 0.1) 100%),
+    linear-gradient(180deg, rgba(16, 41, 29, 0.4), rgba(16, 41, 29, 0.08) 42%, rgba(16, 41, 29, 0.66));
+}
+html[data-theme="modern-energy-portfolio"] .hero__eyebrow { color: #FBCB77; }
+html[data-theme="modern-energy-portfolio"] .hero__eyebrow::before { background: #F5A623; }
+
+/* Buttons: green primary, gold hover halos */
+html[data-theme="modern-energy-portfolio"] .btn--primary {
+  background: linear-gradient(120deg, #2E8B57, #226B42);
+  box-shadow: 0 10px 24px rgba(46, 139, 87, 0.35);
+}
+html[data-theme="modern-energy-portfolio"] .btn--primary:hover { filter: none; background: #175430; }
+html[data-theme="modern-energy-portfolio"] .btn--dark { background: #10291D; }
+html[data-theme="modern-energy-portfolio"] .btn--glass { border-color: #2E8B57; color: #175430; }
+
+/* Coverage, CTA, footer */
+html[data-theme="modern-energy-portfolio"] .coverage-panel {
+  background: linear-gradient(120deg, rgba(16, 41, 29, 0.97), rgba(34, 107, 66, 0.96)),
+    url("../images/solar/dusk-field.jpg") center/cover;
+}
+html[data-theme="modern-energy-portfolio"] .cta-band { background: #10291D; }
+
+html[data-theme="modern-energy-portfolio"] .site-footer { border-top: 3px solid #F5A623; }
+html[data-theme="modern-energy-portfolio"] .footer-heading { color: #FBCB77; }
+html[data-theme="modern-energy-portfolio"] .footer-col a { color: #DCE7D6; opacity: 0.9; }
+html[data-theme="modern-energy-portfolio"] .footer-brand p,
+html[data-theme="modern-energy-portfolio"] .footer-bottom__inner { color: #8FA98B; }
+html[data-theme="modern-energy-portfolio"] .footer-contact .icon { color: #F5A623; }
+html[data-theme="modern-energy-portfolio"] .footer-tagline { color: #FBCB77; }
+html[data-theme="modern-energy-portfolio"] .footer-catalogue { background: #175430; border-color: #2E8B57; color: #DCE7D6; }
+html[data-theme="modern-energy-portfolio"] .footer-bottom { border-top-color: rgba(255, 255, 255, 0.14); }
+
+html[data-theme="modern-energy-portfolio"] ::selection { background: #F5A623; color: #10291D; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="modern-energy-portfolio"] {
+  --cta-bg: #F5A623;
+  --cta-text: #142A12;
+  --cta-border: rgba(20, 42, 18, 0);
+  --cta-hover-bg: #FBCB77;
+  --cta-hover-text: #142A12;
+  --cta-hover-border: rgba(20, 42, 18, 0);
+  --cta-focus: #FFFFFF;
+  --cta-shadow: 0 12px 28px rgba(245, 166, 35, 0.35);
+}

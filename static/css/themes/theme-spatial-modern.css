@@ -1,0 +1,146 @@
+/* ============================================================
+   GV POWERS — THEME 12 · SPATIAL MODERN
+   Deep-space dark canvas, glowing violet/cyan accents, big
+   airy spacing, floating translucent panels, blueprint section
+   backplates. Designed to feel futuristic but calm.
+   ============================================================ */
+
+html[data-theme="spatial-modern"] {
+  --bg: #101318;
+  --bg-alt: #151A21;
+  --surface: #1A2029;
+  --surface-2: #212931;
+  --ink: #E5EAF2;
+  --ink-soft: #97A3B6;
+  --headline: #F4F7FC;
+  --on-dark: #F4F7FC;
+  --ivory: #F4F7FC;
+  --line: #2A3340;
+  --line-strong: #3D4956;
+  --sage: #7B6CFF;
+  --sage-deep: #6352F2;
+  --sage-dark: #5341D8;
+  --sand: #45E0D2;
+  --sand-soft: #2A2F42;
+  --deep: #0B0E12;
+  --card-surface: #1A2029;
+  --border-subtle: #2A3340;
+  --accent: #7B6CFF;
+  --accent-contrast: #0B0E12;
+  --nav-bg: rgba(11, 14, 18, 0.88);
+  --nav-line: rgba(123, 108, 255, 0.25);
+  --footer-bg: #0B0E12;
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+  --btn-radius: 12px;
+  --font-head: "Sora", "Segoe UI", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --shadow-soft: 0 8px 28px rgba(4, 6, 12, 0.5);
+  --shadow-lift: 0 22px 48px rgba(4, 6, 12, 0.6);
+}
+
+/* Ambient space glow background */
+html[data-theme="spatial-modern"] body { animation: none; }
+html[data-theme="spatial-modern"] body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(900px 500px at 80% -10%, rgba(123, 108, 255, 0.14), transparent 60%),
+    radial-gradient(700px 500px at 0% 85%, rgba(69, 224, 210, 0.1), transparent 60%);
+}
+html[data-theme="spatial-modern"] .site-main { position: relative; z-index: 1; }
+
+/* Floating translucent glass header over space */
+html[data-theme="spatial-modern"] .nav-links__link { color: #E5EAF2; }
+html[data-theme="spatial-modern"] .nav-links__link:hover { color: #FFFFFF; text-shadow: 0 0 12px rgba(123, 108, 255, 0.7); }
+html[data-theme="spatial-modern"] .nav-links__link.is-active { color: #A99DFF; }
+html[data-theme="spatial-modern"] .brand__est { color: #7B6CFF; }
+html[data-theme="spatial-modern"] .nav-toggle { background: #1A2029; border-color: #2A3340; }
+html[data-theme="spatial-modern"] .nav-toggle__bar { background: #E5EAF2; }
+html[data-theme="spatial-modern"] .glass-button { background: #1A2029; border-color: #3D4956; color: #F4F7FC; }
+html[data-theme="spatial-modern"] .glass-button:hover { border-color: #7B6CFF; }
+html[data-theme="spatial-modern"] .dropdown { background: #151A21; }
+
+/* Glow accents */
+html[data-theme="spatial-modern"] .eyebrow {
+  color: #7B6CFF;
+  text-shadow: 0 0 12px rgba(123, 108, 255, 0.5);
+}
+html[data-theme="spatial-modern"] .eyebrow::before { background: #45E0D2; width: 6px; height: 6px; }
+
+/* Hero: space-night overlay with colour gradient wash */
+html[data-theme="spatial-modern"] .hero__overlay {
+  background:
+    linear-gradient(90deg, rgba(11, 14, 18, 0.8) 0%, rgba(11, 14, 18, 0.55) 45%, rgba(123, 108, 255, 0.14) 100%),
+    linear-gradient(180deg, rgba(11, 14, 18, 0.5), rgba(11, 14, 18, 0.05) 40%, rgba(11, 14, 18, 0.75) 100%);
+}
+html[data-theme="spatial-modern"] .hero__eyebrow { color: #45E0D2; }
+html[data-theme="spatial-modern"] .hero__eyebrow::before { background: #45E0D2; }
+
+/* Floating panels */
+html[data-theme="spatial-modern"] .glass-card {
+  border-radius: 20px;
+}
+html[data-theme="spatial-modern"] .glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(123, 108, 255, 0.55);
+  box-shadow: 0 0 0 1px rgba(123, 108, 255, 0.4), 0 18px 44px rgba(4, 6, 12, 0.55);
+}
+html[data-theme="spatial-modern"] .glass-icon { background: rgba(123, 108, 255, 0.14); color: #A99DFF; border: 1px solid rgba(123, 108, 255, 0.35); box-shadow: 0 8px 22px rgba(4, 6, 12, 0.5); }
+
+/* Buttons */
+html[data-theme="spatial-modern"] .btn--primary {
+  background: linear-gradient(120deg, #7B6CFF, #6352F2);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(123, 108, 255, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+html[data-theme="spatial-modern"] .btn--dark { background: #E5EAF2; color: #101318; }
+html[data-theme="spatial-modern"] .btn--dark:hover { background: #fff; }
+html[data-theme="spatial-modern"] .btn--glass { border-color: #3D4956; color: #E5EAF2; }
+
+/* Stats: floating console */
+html[data-theme="spatial-modern"] .stats-panel {
+  background: #151A21;
+  box-shadow: 0 24px 50px rgba(4, 6, 12, 0.55), inset 0 1px 0 rgba(123, 108, 255, 0.2);
+}
+html[data-theme="spatial-modern"] .stat__value { color: #A99DFF; }
+html[data-theme="spatial-modern"] .stat__label { color: #97A3B6; }
+html[data-theme="spatial-modern"] .stat + .stat::before,
+html[data-theme="spatial-modern"] .projects-stat + .projects-stat::before {
+  background: linear-gradient(180deg, transparent, rgba(123, 108, 255, 0.55), transparent);
+}
+html[data-theme="spatial-modern"] .projects-stat strong { color: #45E0D2; font-weight: 800; }
+html[data-theme="spatial-modern"] .projects-stat__text { color: #F4F7FC; }
+html[data-theme="spatial-modern"] .projects-stats {
+  background: #151A21;
+  box-shadow: 0 24px 50px rgba(4, 6, 12, 0.55), inset 0 1px 0 rgba(123, 108, 255, 0.2);
+}
+
+/* Forms */
+html[data-theme="spatial-modern"] .enquiry { background: #151A21; border-color: #2A3340; }
+html[data-theme="spatial-modern"] .form-field input,
+html[data-theme="spatial-modern"] .form-field select,
+html[data-theme="spatial-modern"] .form-field textarea { background: #0E1217; border-color: #2A3340; color: #E5EAF2; }
+html[data-theme="spatial-modern"] .form-field :focus { border-color: #7B6CFF; box-shadow: 0 0 0 4px rgba(123, 108, 255, 0.18); }
+html[data-theme="spatial-modern"] .form-field label { color: #C7CFDA; }
+
+/* Aggregates + map chip tone-down */
+html[data-theme="spatial-modern"] .section--sand { background: #151A21; }
+html[data-theme="spatial-modern"] .section--tinted { background: #12161C; }
+html[data-theme="spatial-modern"] ::selection { background: #7B6CFF; color: #fff; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="spatial-modern"] {
+  --cta-bg: #45E0D2;
+  --cta-text: #0B0E12;
+  --cta-border: rgba(69, 224, 210, 0.4);
+  --cta-hover-bg: #5FE8DC;
+  --cta-hover-text: #0B0E12;
+  --cta-hover-border: rgba(69, 224, 210, 0.7);
+  --cta-focus: #FFFFFF;
+  --cta-shadow: 0 12px 28px rgba(69, 224, 210, 0.3);
+}

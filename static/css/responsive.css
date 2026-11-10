@@ -1,0 +1,205 @@
+/* ============================================================
+   GV POWERS — Responsive design
+   Deliberate mobile experience, not a shrunken desktop.
+   Breakpoints: 1100 / 900 / 640 / 430
+   ============================================================ */
+
+/* ---------- ≤1100px : compact desktop ---------- */
+@media (max-width: 1100px) {
+  :root { --nav-height: 72px; }
+
+  .nav-links { gap: 0; }
+  .nav-links__link { padding: 10px 11px; font-size: 0.86rem; }
+  .btn--catalogue { padding: 9px 16px; font-size: 0.84rem; }
+
+  .stat { padding: 26px 12px; }
+  .stat__label { font-size: 0.68rem; max-width: 120px; }
+
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .intro__grid,
+  .about-story { gap: 40px; }
+
+  .coverage-panel__inner { padding: 42px 40px; }
+  .service-closing { padding: 38px 36px; }
+
+  .projects-stat { padding: 34px 18px 30px; }
+  .projects-stat strong { font-size: 2.5rem; }
+  .projects-stat__text { font-size: 1.8rem; }
+}
+
+/* ---------- ≤900px : tablet ---------- */
+@media (max-width: 900px) {
+  .nav-links, .btn--catalogue, .theme-launcher { display: none; }
+  .nav-toggle { display: flex; margin-left: auto; }
+  .glass-nav { gap: 14px; padding-inline: 16px 12px; }
+
+  .services__grid { grid-template-columns: 1fr; gap: 14px; }
+  .service-card { padding: 20px 22px; }
+
+  .stats-panel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .stat + .stat::before { display: none; }
+  .stat { padding: 22px 14px; }
+
+  .intro__grid,
+  .about-story,
+  .solution-detail,
+  .solution-detail--flip,
+  .bess {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .solution-detail--flip .solution-detail__copy { order: 1; }
+  .solution-detail--flip .solution-detail__media { order: 2; }
+  .bess__media { order: 2; }
+
+  .intro__media { max-width: 560px; }
+  .floating-badge { left: 12px; top: 14px; }
+  .framed-image--small { display: none; }
+
+  .solutions-grid { grid-template-columns: 1fr; }
+  .solution-tile { padding: 26px 24px; }
+  .solutions-row { padding: 24px 24px; gap: 18px; }
+
+  .mv-grid { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .contact-grid { grid-template-columns: 1fr; }
+  .contact-cards { grid-template-columns: repeat(2, 1fr); }
+  .enquiry { padding: 30px 26px; }
+
+  .coverage-panel__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 32px;
+  }
+  .service-closing { flex-direction: column; align-items: flex-start; }
+  .service-closing__actions { flex-direction: row; flex-wrap: wrap; }
+  .cta-band { flex-direction: column; align-items: flex-start; padding: 34px 30px; }
+  .catalogue-strip { flex-direction: column; align-items: flex-start; padding: 26px 26px; }
+
+  :root {
+    --space-sm: 30px;
+    --space-md: 44px;
+    --space-lg: 60px;
+  }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+
+/* ---------- ≤640px : large phones ---------- */
+@media (max-width: 640px) {
+  .container { width: min(100% - 32px, var(--container)); }
+
+  :root {
+    --nav-height: 64px;
+    --space-sm: 24px;
+    --space-md: 36px;
+    --space-lg: 48px;
+  }
+
+  .glass-nav { padding-inline: 16px 12px; }
+
+  .hero {
+    min-height: 88svh;
+  }
+  .hero__title { max-width: 12ch; }
+  .hero__content { padding-block: calc(var(--nav-height) + 56px) 64px; }
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { width: 100%; }
+
+  .services { padding-bottom: 4px; }
+  .service-card { gap: 12px; padding: 18px 20px; }
+  .service-card__title { font-size: 1.35rem; }
+  .glass-arrow { --gi-size: 38px; }
+
+  .stats-panel { grid-template-columns: repeat(2, 1fr); }
+  .stat { padding: 20px 10px; }
+  .stat:last-child:nth-child(odd) { grid-column: 1 / -1; }
+  .stat__value { font-size: 1.8rem; }
+
+  .section-head--row { flex-direction: column; align-items: flex-start; }
+
+  .page-hero { min-height: 42vh; }
+  .page-hero__content { padding-block: 0 40px; }
+
+  .solutions-row { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .solutions-row .glass-arrow { margin-left: 0; }
+  .solutions-row__body h2 { font-size: 1.45rem; }
+
+  .values-grid { grid-template-columns: 1fr; gap: 18px; }
+  .locations-grid { grid-template-columns: 1fr; }
+
+  .contact-cards { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .enquiry { padding: 24px 20px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; padding-block: 42px 32px; }
+  .footer-bottom__inner { flex-direction: column; text-align: center; }
+
+  .back-to-top { right: 16px; bottom: 16px; width: 46px; height: 46px; }
+  .whatsapp-float { left: 16px; bottom: 16px; width: 48px; height: 48px; }
+  .whatsapp-float svg { width: 24px; height: 24px; }
+
+  .error-card { padding: 40px 26px; }
+  .error-code { font-size: 4rem; }
+
+  .brand__logo { height: 38px; }
+  .brand__est { display: none; }
+
+  .about-story__media { padding-bottom: 0; }
+  .floating-badge { padding: 12px 16px; }
+  .floating-badge .glass-icon { --gi-size: 38px; --gi-radius: 9px; }
+
+  /* stacked hero stat separators become horizontal rules */
+  .projects-stat + .projects-stat::before {
+    top: 0; bottom: auto; left: 10%; right: 10%; width: auto; height: 1px;
+    background: var(--line);
+  }
+}
+
+/* ---------- ≤430px : small phones ---------- */
+@media (max-width: 430px) {
+  .hero__title { font-size: clamp(2.35rem, 11vw, 2.9rem); }
+  .section-title { font-size: 1.65rem; }
+  .page-hero__title { font-size: 2rem; }
+
+  .hero__title { max-width: 11ch; }
+
+  .stats-panel { grid-template-columns: repeat(2, 1fr); }
+  .stat__value { font-size: 1.85rem; }
+  .stat__label { font-size: 0.66rem; }
+
+  .projects-stats { grid-template-columns: 1fr; }
+  .projects-stat { padding: 26px 18px 22px; }
+  .projects-stat strong { font-size: 2.6rem; }
+
+  .mobile-menu { padding-top: 80px; }
+  .mobile-menu__panel > ul > li > a { font-size: 1.4rem; }
+
+  .theme-modal { padding: 12px; }
+  .theme-modal__grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .theme-modal__body { padding: 16px; }
+  .theme-modal__head { padding: 16px; }
+  .theme-modal__foot { flex-direction: column; align-items: stretch; gap: 10px; padding: 14px 16px; }
+
+  .btn { padding: 13px 22px; }
+}
+
+/* ---------- Landscape phones ---------- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .hero { min-height: 100vh; }
+  .hero__content { padding-block: 80px 60px; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+  .site-header, .mobile-menu, .back-to-top, .coverage-panel__actions,
+  .hero__actions, .whatsapp-card, .whatsapp-float, .hero__scroll-cue,
+  .theme-modal, .theme-launcher { display: none !important; }
+  body { background: white; }
+  .hero, .page-hero { min-height: auto; }
+  .hero__content { padding-block: 40px; }
+}

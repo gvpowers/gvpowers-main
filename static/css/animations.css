@@ -1,0 +1,73 @@
+/* ============================================================
+   GV POWERS — Animations
+   GPU-friendly transforms/opacity only. Respects reduced motion.
+   ============================================================ */
+
+/* Scroll-reveal base state */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.75s var(--ease),
+    transform 0.75s var(--ease);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero entrance choreography */
+.hero__eyebrow[data-reveal] { transform: translateY(18px); }
+.hero__title[data-reveal] { transform: translateY(30px); }
+
+/* Hero image slow reveal (zoom-out on load) */
+.hero__media img {
+  animation: heroZoom 2.4s var(--ease) both;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.07); }
+  to   { transform: scale(1.0); }
+}
+
+/* Icon chip hover — subtle scale only (glass sweeping is Theme 09 only) */
+.glass-icon .icon { transition: transform 0.35s var(--ease); }
+
+/* Counter pop-in */
+.stat__value.is-counting {
+  animation: statPop 0.5s var(--ease);
+}
+@keyframes statPop {
+  0%   { transform: translateY(8px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Dropdown subtle rise */
+.dropdown { transform-origin: top center; }
+
+/* Page transition fade */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+main {
+  animation: pageFadeIn 0.6s var(--ease) both;
+}
+
+/* Parallax class applied via JS (hero image) */
+.is-parallaxing .hero__media img {
+  transition: transform 0.1s linear;
+}
+
+/* Reduced motion: show everything immediately */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .hero__media img { animation: none !important; }
+  main { animation: none !important; }
+}

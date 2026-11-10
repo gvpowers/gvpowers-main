@@ -1,0 +1,98 @@
+/* ============================================================
+   GV POWERS — THEME 07 · WARM MONOCHROME
+   Sand, cream, taupe and muted grey in an understated
+   editorial register — single warm palette, fine hairlines,
+   numerals led with elegance to spare.
+   ============================================================ */
+
+html[data-theme="warm-monochrome"] {
+  --bg: #F5F2ED;
+  --bg-alt: #EDE8E0;
+  --surface: #FBF9F6;
+  --surface-2: #EFEBE4;
+  --ink: #2A2825;
+  --ink-soft: #6C675F;
+  --headline: #2A2825;
+  --on-dark: #F5F2ED;
+  --ivory: #F5F2ED;
+  --line: #DED8CC;
+  --line-strong: #BDB4A4;
+  --sage: #8B857A;
+  --sage-deep: #746E63;
+  --sage-dark: #57524A;
+  --sand: #D8C9AF;
+  --sand-soft: #EAE1D1;
+  --deep: #26231F;
+  --card-surface: #FBF9F6;
+  --border-subtle: #DED8CC;
+  --accent: #33302B;
+  --accent-contrast: #F5F2ED;
+  --nav-bg: #F5F2ED;
+  --nav-line: #DED8CC;
+  --footer-bg: #EAE1D1;
+  --radius-lg: 2px;
+  --radius-md: 2px;
+  --radius-sm: 2px;
+  --btn-radius: 2px;
+  --font-head: "Cormorant Garamond", Georgia, serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+/* Completely grayscale brand: chroma off */
+html[data-theme="warm-monochrome"] .solutions-row__body h2,
+html[data-theme="warm-monochrome"] .feature h3 { color: #2A2825; }
+
+/* Serif numerals, generous caps */
+html[data-theme="warm-monochrome"] .section-title { font-weight: 500; letter-spacing: 0; }
+html[data-theme="warm-monochrome"] .eyebrow {
+  color: #6C675F;
+  font-size: 0.68rem;
+  letter-spacing: 0.34em;
+}
+html[data-theme="warm-monochrome"] .eyebrow::before { width: 24px; height: 1px; background: #BDB4A4; }
+
+/* Card: flat warm paper, 1px taupe rule */
+html[data-theme="warm-monochrome"] .glass-card {
+  border: 1px solid #DED8CC;
+  background: #FBF9F6;
+}
+html[data-theme="warm-monochrome"] .glass-card:hover {
+  border-color: #57524A;
+  transform: none;
+  box-shadow: 0 6px 18px rgba(42, 40, 37, 0.07);
+}
+
+/* Buttons — quiet outline and taupe fill */
+html[data-theme="warm-monochrome"] .btn--primary { background: #33302B; }
+html[data-theme="warm-monochrome"] .btn--dark { background: #26231F; }
+html[data-theme="warm-monochrome"] .btn--glass { border-color: #BDB4A4; }
+html[data-theme="warm-monochrome"] .btn--glass:hover { background: #EAE1D1; border-color: #57524A; }
+
+/* Stats as soft cream columns with taupe hairlines */
+html[data-theme="warm-monochrome"] .stats-panel { background: #EAE1D1; border-color: #DED8CC; }
+html[data-theme="warm-monochrome"] .stat__value { font-family: var(--font-head); font-weight: 600; }
+html[data-theme="warm-monochrome"] .projects-stat strong { font-family: var(--font-head); font-weight: 600; }
+html[data-theme="warm-monochrome"] .stat + .stat::before,
+html[data-theme="warm-monochrome"] .projects-stat + .projects-stat::before { background: #BDB4A4; }
+
+/* Cream hero bands */
+html[data-theme="warm-monochrome"] .coverage-panel {
+  background:
+    linear-gradient(120deg, rgba(38, 35, 31, 0.94), rgba(87, 82, 74, 0.94)),
+    url("../images/solar/dusk-field.jpg") center/cover;
+}
+html[data-theme="warm-monochrome"] .cta-band { background: #26231F; }
+
+html[data-theme="warm-monochrome"] ::selection { background: #D8C9AF; color: #2A2825; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="warm-monochrome"] {
+  --cta-bg: #D8C9AF;
+  --cta-text: #26231F;
+  --cta-border: rgba(38, 35, 31, 0);
+  --cta-hover-bg: #C9B99B;
+  --cta-hover-text: #26231F;
+  --cta-hover-border: rgba(38, 35, 31, 0);
+  --cta-focus: #FFFFFF;
+  --cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+}

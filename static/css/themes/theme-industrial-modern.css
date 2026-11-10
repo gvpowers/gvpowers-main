@@ -1,0 +1,115 @@
+/* ============================================================
+   GV POWERS — THEME 03 · INDUSTRIAL MODERN
+   Technical industrial aesthetic: charcoal surfaces, safety
+   amber accents, condensed uppercase headings, hard edges,
+   engineering-panel section headers.
+   ============================================================ */
+
+html[data-theme="industrial-modern"] {
+  --bg: #F0F0EF;
+  --bg-alt: #E4E5E4;
+  --surface: #FFFFFF;
+  --surface-2: #E9EAEB;
+  --ink: #1B1D20;
+  --ink-soft: #55585E;
+  --headline: #1B1D20;
+  --on-dark: #F5F5F4;
+  --ivory: #F5F5F4;
+  --line: #C9CBCE;
+  --line-strong: #8F9299;
+  --sage: #D9822B;           /* safety amber drives the accent */
+  --sage-deep: #B56A1E;
+  --sage-dark: #8C5316;
+  --sand: #D9822B;
+  --sand-soft: #F7E5D3;
+  --deep: #212224;
+  --card-surface: #FFFFFF;
+  --border-subtle: #C9CBCE;
+  --accent: #26282B;
+  --accent-contrast: #F5F5F4;
+  --nav-bg: #212224;
+  --nav-line: #000000;
+  --footer-bg: #212224;
+  --radius-lg: 0px;
+  --radius-md: 0px;
+  --radius-sm: 0px;
+  --btn-radius: 0px;
+  --font-head: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --shadow-soft: 0 2px 0 rgba(27, 29, 32, 0.08);
+  --shadow-lift: 0 10px 0 -4px rgba(27, 29, 32, 0.14);
+}
+
+/* Dark steel header with amber brand accents */
+html[data-theme="industrial-modern"] .nav-links__link { color: #F5F5F4; }
+html[data-theme="industrial-modern"] .nav-links__link:hover,
+html[data-theme="industrial-modern"] .nav-links__link.is-active { color: #D9822B; }
+html[data-theme="industrial-modern"] .brand__est { color: #D9822B; border-left-color: #D9822B; padding-left: 12px; }
+html[data-theme="industrial-modern"] .nav-toggle { background: #2E3134; border-color: #44474B; }
+html[data-theme="industrial-modern"] .nav-toggle__bar { background: #F5F5F4; }
+html[data-theme="industrial-modern"] .glass-button { background: #D9822B; color: #212224; border: 0; font-weight: 800; }
+html[data-theme="industrial-modern"] .dropdown { background: #2E3134; border-color: #44474B; }
+html[data-theme="industrial-modern"] .dropdown__link { color: #F5F5F4; }
+html[data-theme="industrial-modern"] .dropdown__link:hover { background: #3A3D41; }
+
+/* Condensed uppercase headings with left accent tick */
+html[data-theme="industrial-modern"] h1, html[data-theme="industrial-modern"] h2,
+html[data-theme="industrial-modern"] h3 { text-transform: uppercase; letter-spacing: 0.03em; }
+html[data-theme="industrial-modern"] .section-title { font-weight: 600; }
+html[data-theme="industrial-modern"] .eyebrow { color: #B56A1E; }
+html[data-theme="industrial-modern"] .eyebrow::before {
+  width: 10px; height: 10px;
+  background: #D9822B;
+}
+
+/* Card = engineering panel: clipped corners, top label strip */
+html[data-theme="industrial-modern"] .glass-card { border: 1px solid #C9CBCE; border-radius: 0; }
+html[data-theme="industrial-modern"] .glass-card:hover {
+  border-color: #D9822B;
+  box-shadow: 4px 4px 0 #26282B;
+  transform: translate(-2px, -2px);
+}
+html[data-theme="industrial-modern"] .coverage-panel {
+  background: linear-gradient(120deg, rgba(23, 24, 26, 0.97), rgba(60, 63, 69, 0.96)),
+    url("../images/solar/dusk-field.jpg") center/cover;
+}
+html[data-theme="industrial-modern"] .cta-band { background: #212224; }
+
+/* Technical buttons */
+html[data-theme="industrial-modern"] .btn--primary { background: #D9822B; color: #1B1D20; }
+html[data-theme="industrial-modern"] .btn--primary:hover { filter: none; background: #B56A1E; }
+html[data-theme="industrial-modern"] .btn--dark { background: #26282B; color: #F5F5F4; }
+html[data-theme="industrial-modern"] .btn--glass { border-color: #8F9299; color: #1B1D20; }
+
+/* Stats as stamped plates */
+html[data-theme="industrial-modern"] .stats-panel { border: 2px solid #1B1D20; }
+html[data-theme="industrial-modern"] .stat__label { color: #55585E; font-size: 0.7rem; letter-spacing: 0.14em; }
+html[data-theme="industrial-modern"] .stat__value { color: #D9822B; }
+
+/* Blueprint grid section tint */
+html[data-theme="industrial-modern"] .section--tinted {
+  background:
+    linear-gradient(rgba(27, 29, 32, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 29, 32, 0.05) 1px, transparent 1px),
+    #E9EAEB;
+  background-size: 28px 28px, 28px 28px, auto;
+}
+
+html[data-theme="industrial-modern"] ::selection { background: #D9822B; color: #FFFFFF; }
+
+html[data-theme="industrial-modern"] .check-list .icon {
+  background: #D9822B;
+  color: #212224;
+}
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="industrial-modern"] {
+  --cta-bg: #D9822B;
+  --cta-text: #14161A;
+  --cta-border: #8C5316;
+  --cta-hover-bg: #F0903A;
+  --cta-hover-text: #14161A;
+  --cta-hover-border: #B56A1E;
+  --cta-focus: #FFFFFF;
+  --cta-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+}

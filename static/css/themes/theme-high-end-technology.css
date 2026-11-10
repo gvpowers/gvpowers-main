@@ -1,0 +1,145 @@
+/* ============================================================
+   GV POWERS — THEME 14 · HIGH-END TECHNOLOGY
+   Precision-tech look: near-black backgrounds, sharp white
+   type, searing mint/cyan signal accents, wide growth spacing,
+   tight display tracking, thin instrument dividers.
+   ============================================================ */
+
+html[data-theme="high-end-technology"] {
+  --bg: #0A0C0F;
+  --bg-alt: #12151A;
+  --surface: #16191F;
+  --surface-2: #1E2229;
+  --ink: #DDE3EA;
+  --ink-soft: #8B95A5;
+  --headline: #F2F5F9;
+  --on-dark: #F2F5F9;
+  --ivory: #F2F5F9;
+  --line: #23282F;
+  --line-strong: #39414D;
+  --sage: #00E5A0;
+  --sage-deep: #00CE8E;
+  --sage-dark: #00B377;
+  --sand: #37D5FF;
+  --sand-soft: #14333D;
+  --deep: #05060A;
+  --card-surface: #16191F;
+  --border-subtle: #23282F;
+  --accent: #00E5A0;
+  --accent-contrast: #05060A;
+  --nav-bg: rgba(5, 6, 10, 0.92);
+  --nav-line: rgba(0, 229, 160, 0.28);
+  --footer-bg: #05060A;
+  --radius-lg: 12px;
+  --radius-md: 9px;
+  --radius-sm: 7px;
+  --btn-radius: 8px;
+  --font-head: "Space Grotesk", "Segoe UI", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.55);
+  --shadow-lift: 0 24px 50px rgba(0, 0, 0, 0.65);
+}
+
+html[data-theme="high-end-technology"] body { animation: none; }
+
+/* System header with mint terminals */
+html[data-theme="high-end-technology"] .nav-links__link { color: #DDE3EA; }
+html[data-theme="high-end-technology"] .nav-links__link:hover { color: #FFFFFF; }
+html[data-theme="high-end-technology"] .nav-links__link.is-active {
+  color: #00E5A0;
+  -webkit-text-stroke: 0;
+}
+html[data-theme="high-end-technology"] .brand__logo { filter: invert(1) brightness(1.6) hue-rotate(120deg); }
+html[data-theme="high-end-technology"] .brand__est { color: #00E5A0; }
+html[data-theme="high-end-technology"] .nav-toggle { background: #16191F; border-color: #23282F; }
+html[data-theme="high-end-technology"] .nav-toggle__bar { background: #DDE3EA; }
+html[data-theme="high-end-technology"] .glass-button { background: #16191F; border-color: #39414D; color: #F2F5F9; }
+html[data-theme="high-end-technology"] .glass-button:hover { border-color: #00E5A0; color: #00E5A0; }
+html[data-theme="high-end-technology"] .dropdown { background: #12151A; }
+html[data-theme="high-end-technology"] .dropdown__link:hover { background: #1E2229; color: #00E5A0; }
+
+/* Instrument eyebrow + glowing title */
+html[data-theme="high-end-technology"] .eyebrow { color: #00E5A0; letter-spacing: 0.22em; font-size: 0.66rem; }
+html[data-theme="high-end-technology"] .eyebrow::before {
+  width: 7px; height: 7px; border-radius: 1px;
+  background: #00E5A0;
+  box-shadow: 0 0 10px rgba(0, 229, 160, 0.8);
+}
+html[data-theme="high-end-technology"] .section-title { letter-spacing: -0.02em; font-weight: 700; }
+
+/* Hero: midnight overlay + mint eyebrow + white gradient title */
+html[data-theme="high-end-technology"] .hero__overlay {
+  background:
+    linear-gradient(90deg, rgba(5, 6, 10, 0.85) 0%, rgba(5, 6, 10, 0.6) 42%, rgba(0, 229, 160, 0.08) 100%),
+    linear-gradient(180deg, rgba(5, 6, 10, 0.55), rgba(5, 6, 10, 0.1) 40%, rgba(5, 6, 10, 0.8));
+}
+html[data-theme="high-end-technology"] .hero__eyebrow {
+  color: #00E5A0;
+}
+html[data-theme="high-end-technology"] .hero__eyebrow::before {
+  background: #00E5A0; box-shadow: 0 0 10px rgba(0, 229, 160, 0.9);
+}
+html[data-theme="high-end-technology"] .hero__title {
+  background: linear-gradient(100deg, #FFFFFF 60%, rgba(55, 213, 255, 0.9));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html[data-theme="high-end-technology"] .hero__lede { color: rgba(242, 245, 249, 0.85); }
+
+/* Product badges: instrument chips */
+html[data-theme="high-end-technology"] .badge {
+  background: #16191F;
+  border-color: #39414D;
+  color: #B9C2CE;
+  box-shadow: var(--shadow-soft);
+}
+html[data-theme="high-end-technology"] .badge--light {
+  background: rgba(0, 229, 160, 0.14);
+  border-color: rgba(0, 229, 160, 0.5);
+  color: #00E5A0;
+}
+html[data-theme="high-end-technology"] .badge--amber { color: #37D5FF; }
+html[data-theme="high-end-technology"] .badge--amber .badge-dot { background: #37D5FF; box-shadow: 0 0 10px rgba(55, 213, 255, 0.9); }
+
+/* Precision buttons */
+html[data-theme="high-end-technology"] .btn--primary {
+  background: linear-gradient(120deg, #00E5A0, #00CE8E);
+  color: #05060A;
+  box-shadow: 0 12px 28px rgba(0, 229, 160, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+html[data-theme="high-end-technology"] .btn--dark { background: #16191F; border-color: #39414D; color: #F2F5F9; }
+html[data-theme="high-end-technology"] .btn--dark:hover { border-color: #00E5A0; color: #00E5A0; }
+html[data-theme="high-end-technology"] .btn--glass { border-color: #39414D; color: #DDE3EA; }
+
+/* Panels: thin borders on void */
+html[data-theme="high-end-technology"] .glass-card:hover {
+  border-color: rgba(0, 229, 160, 0.5);
+  box-shadow: 0 0 0 1px rgba(0, 229, 160, 0.35), 0 22px 48px rgba(0, 0, 0, 0.6);
+}
+html[data-theme="high-end-technology"] .glass-icon { background: rgba(0, 229, 160, 0.1); color: #00E5A0; border: 1px solid rgba(0, 229, 160, 0.35); }
+
+/* Stats: readout console */
+html[data-theme="high-end-technology"] .stats-panel { background: #12151A; }
+html[data-theme="high-end-technology"] .stat__value { color: #00E5A0; }
+html[data-theme="high-end-technology"] .stat__label { color: #8B95A5; }
+html[data-theme="high-end-technology"] .stat + .stat::before { background: #23282F; }
+html[data-theme="high-end-technology"] .projects-stats { background: #12151A; }
+html[data-theme="high-end-technology"] .projects-stat strong { color: #37D5FF; }
+html[data-theme="high-end-technology"] .projects-stat + .projects-stat::before { background: #23282F; }
+html[data-theme="high-end-technology"] .projects-stat__text { color: #F2F5F9; }
+
+html[data-theme="high-end-technology"] .section--sand { background: #12151A; }
+html[data-theme="high-end-technology"] ::selection { background: #00E5A0; color: #05060A; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="high-end-technology"] {
+  --cta-bg: #00E5A0;
+  --cta-text: #05060A;
+  --cta-border: rgba(0, 229, 160, 0.45);
+  --cta-hover-bg: #17F5B3;
+  --cta-hover-text: #05060A;
+  --cta-hover-border: rgba(0, 229, 160, 0.8);
+  --cta-focus: #FFFFFF;
+  --cta-shadow: 0 12px 28px rgba(0, 229, 160, 0.35);
+}

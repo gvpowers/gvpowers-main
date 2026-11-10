@@ -1,0 +1,148 @@
+/* ============================================================
+   GV POWERS — THEME 10 · NEO-BRUTALIST
+   Heavy 3px black borders, hard offset shadows, loud yellow/
+   red blocks, uppercase display type, zero radius, deliberately
+   confrontational but fully usable.
+   ============================================================ */
+
+html[data-theme="neo-brutalist"] {
+  --bg: #F8F5EA;
+  --bg-alt: #FDE845;
+  --surface: #FFFFFF;
+  --surface-2: #F5F1E4;
+  --ink: #121212;
+  --ink-soft: #3C3C38;
+  --headline: #121212;
+  --on-dark: #F8F5EA;
+  --ivory: #F8F5EA;
+  --line: #141414;
+  --line-strong: #141414;
+  --sage: #E84A2F;
+  --sage-deep: #C23A22;
+  --sage-dark: #8A2A17;
+  --sand: #FDE845;
+  --sand-soft: #FBF3C4;
+  --deep: #040503;
+  --card-surface: #FFFFFF;
+  --border-subtle: #141414;
+  --accent: #121212;
+  --accent-contrast: #F8F5EA;
+  --nav-bg: #FDE845;
+  --nav-line: #121212;
+  --footer-bg: #121212;
+  --radius-lg: 0px;
+  --radius-md: 0px;
+  --radius-sm: 0px;
+  --btn-radius: 0px;
+  --font-head: "Space Grotesk", "Arial Black", sans-serif;
+  --font-body: "Space Grotesk", Arial, sans-serif;
+  --shadow-soft: -4px 4px 0 rgba(18, 18, 18, 0.9);
+  --shadow-lift: -7px 7px 0 rgba(18, 18, 18, 0.9);
+  --shadow-pop: -10px 10px 0 rgba(18, 18, 18, 0.95);
+}
+
+/* Yellow structural header with hard bottom border */
+html[data-theme="neo-brutalist"] .site-header { border-bottom: 3px solid #121212; box-shadow: none; }
+html[data-theme="neo-brutalist"] .nav-links__link { border: 2px solid transparent; }
+html[data-theme="neo-brutalist"] .nav-links__link:hover,
+html[data-theme="neo-brutalist"] .nav-links__link.is-active {
+  background: #121212; color: #FDE845;
+}
+html[data-theme="neo-brutalist"] .brand__est {
+  color: #121212; background: #FFFFFF;
+  border: 2px solid #121212; padding: 4px 8px; letter-spacing: 0.2em;
+}
+html[data-theme="neo-brutalist"] .glass-button,
+html[data-theme="neo-brutalist"] .btn--catalogue {
+  border: 3px solid #121212 !important;
+  background: #FFFFFF !important;
+  color: #121212 !important;
+  box-shadow: -3px 3px 0 #121212;
+}
+html[data-theme="neo-brutalist"] .glass-button:hover { transform: translate(1px, -1px) !important; }
+
+/* Heavy display typo */
+html[data-theme="neo-brutalist"] .section-title { font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; }
+html[data-theme="neo-brutalist"] .hero__title { font-weight: 700; text-transform: uppercase; text-shadow: none; }
+html[data-theme="neo-brutalist"] .hero__eyebrow {
+  color: #121212;
+  background: #E84A2F;
+  padding: 8px 16px;
+  border: 3px solid #121212;
+  box-shadow: -4px 4px 0 #121212;
+  display: inline-flex;
+}
+html[data-theme="neo-brutalist"] .hero__eyebrow::before { display: none; }
+html[data-theme="neo-brutalist"] .eyebrow {
+  color: #121212;
+  background: #FDE845;
+  border: 2px solid #121212;
+  padding: 5px 12px;
+}
+html[data-theme="neo-brutalist"] .eyebrow::before { display: none; }
+
+/* Cards: hard borders + offset shadows */
+html[data-theme="neo-brutalist"] .glass-card {
+  border: 3px solid #121212;
+  box-shadow: -6px 6px 0 rgba(18, 18, 18, 0.92);
+}
+html[data-theme="neo-brutalist"] .glass-card:hover {
+  transform: translate(2px, -2px);
+  box-shadow: -8px 8px 0 #E84A2F;
+  border-color: #121212;
+}
+html[data-theme="neo-brutalist"] .framed-image { border: 3px solid #121212; border-radius: 0; box-shadow: -8px 8px 0 rgba(18, 18, 18, 0.9); }
+html[data-theme="neo-brutalist"] .framed-image img { filter: saturate(0.92) contrast(1.05); }
+
+/* Buttons */
+html[data-theme="neo-brutalist"] .btn { border: 3px solid #121212; }
+html[data-theme="neo-brutalist"] .btn--primary { background: #FDE845; color: #121212; box-shadow: -5px 5px 0 #121212; }
+html[data-theme="neo-brutalist"] .btn--primary:hover { transform: translate(2px, -2px); box-shadow: -7px 7px 0 #121212; }
+html[data-theme="neo-brutalist"] .btn--dark { background: #E84A2F; color: #FFFFFF; box-shadow: -5px 5px 0 #121212; }
+html[data-theme="neo-brutalist"] .btn--glass { background: #FFFFFF; color: #121212; box-shadow: -5px 5px 0 #121212; }
+html[data-theme="neo-brutalist"] .coverage-panel__actions .btn--outline-light {
+  box-shadow: -5px 5px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="neo-brutalist"] {
+  --cta-bg: #FDE845;
+  --cta-text: #121212;
+  --cta-border: #121212;
+  --cta-hover-bg: #FFFFFF;
+  --cta-hover-text: #121212;
+  --cta-hover-border: #121212;
+  --cta-focus: #FDE845;
+  --cta-shadow: -5px 5px 0 rgba(248, 245, 234, 0.95);
+  --cta-hover-shadow: -7px 7px 0 rgba(248, 245, 234, 0.95);
+}
+html[data-theme="neo-brutalist"] .btn-consultation { border-width: 3px; }
+
+/* Stats: bordered plates on cream */
+html[data-theme="neo-brutalist"] .stats-panel,
+html[data-theme="neo-brutalist"] .projects-stats {
+  border: 3px solid #121212;
+  box-shadow: -8px 8px 0 rgba(18, 18, 18, 0.9);
+  background: #FFFFFF;
+}
+html[data-theme="neo-brutalist"] .stat__value,
+html[data-theme="neo-brutalist"] .projects-stat strong { color: #E84A2F; }
+html[data-theme="neo-brutalist"] .stat + .stat::before { background: #121212; width: 3px; }
+html[data-theme="neo-brutalist"] .projects-stat + .projects-stat::before { background: #121212; width: 3px; }
+
+html[data-theme="neo-brutalist"] .section--sand { background: #FBF3C4; }
+html[data-theme="neo-brutalist"] .section--tinted { background: #F5F1E4; }
+
+/* Footer: black slab, yellow links */
+html[data-theme="neo-brutalist"] .site-footer { background: #121212; border-top: 0; }
+html[data-theme="neo-brutalist"] .footer-heading { color: #FDE845; letter-spacing: 0.2em; }
+html[data-theme="neo-brutalist"] .footer-col a { color: #F8F5EA; opacity: 1; }
+html[data-theme="neo-brutalist"] .footer-brand p,
+html[data-theme="neo-brutalist"] .footer-bottom__inner { color: #BDBDB5; }
+html[data-theme="neo-brutalist"] .footer-contact .icon { color: #FDE845; }
+html[data-theme="neo-brutalist"] .footer-tagline { color: #FDE845; }
+html[data-theme="neo-brutalist"] .footer-catalogue { background: #FDE845; border: 3px solid #F8F5EA; color: #121212; box-shadow: -4px 4px 0 #FDE845; }
+html[data-theme="neo-brutalist"] .footer-bottom { border-top: 3px solid #3A3A38; }
+
+html[data-theme="neo-brutalist"] ::selection { background: #E84A2F; color: #FFFFFF; }
+html[data-theme="neo-brutalist"] .check-list .icon { background: #E84A2F; color: #FFFFFF; border: 2px solid #121212; }

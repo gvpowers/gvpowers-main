@@ -1,0 +1,100 @@
+/* ============================================================
+   GV POWERS — THEME 04 · CORPORATE MINIMAL
+   Clean white surfaces, structured navy/blue system, business
+   architecture, trustworthy corporate navigation.
+   ============================================================ */
+
+html[data-theme="corporate-minimal"] {
+  --bg: #F7F9FC;
+  --bg-alt: #EDF1F7;
+  --surface: #FFFFFF;
+  --surface-2: #F0F3F8;
+  --ink: #1C2430;
+  --ink-soft: #5A6678;
+  --headline: #142033;
+  --on-dark: #F7F9FC;
+  --ivory: #F7F9FC;
+  --line: #DCE2EC;
+  --line-strong: #B7C3D6;
+  --sage: #1D5EA0;
+  --sage-deep: #164B80;
+  --sage-dark: #0F3D6E;
+  --sand: #2E7BD6;
+  --sand-soft: #E3EDF9;
+  --deep: #10233B;
+  --card-surface: #FFFFFF;
+  --border-subtle: #DCE2EC;
+  --accent: #1D5EA0;
+  --accent-contrast: #FFFFFF;
+  --nav-bg: #10233B;
+  --nav-line: #08131F;
+  --footer-bg: #10233B;
+  --radius-lg: 8px;
+  --radius-md: 6px;
+  --radius-sm: 5px;
+  --btn-radius: 6px;
+  --font-head: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+  --font-head-weight: 700;
+}
+
+/* Executive blue top bar */
+html[data-theme="corporate-minimal"] .nav-links__link { color: #E6ECF5; }
+html[data-theme="corporate-minimal"] .nav-links__link:hover,
+html[data-theme="corporate-minimal"] .nav-links__link.is-active { color: #FFFFFF; background: rgba(255, 255, 255, 0.08); border-radius: 6px; }
+html[data-theme="corporate-minimal"] .brand__est { color: #7FA8D9; }
+html[data-theme="corporate-minimal"] .nav-toggle { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.2); }
+html[data-theme="corporate-minimal"] .nav-toggle__bar { background: #E6ECF5; }
+html[data-theme="corporate-minimal"] .glass-button { background: #2E7BD6; color: #fff; }
+html[data-theme="corporate-minimal"] .dropdown { background: #FFFFFF; }
+html[data-theme="corporate-minimal"] .dropdown__link:hover { background: #E3EDF9; color: #0F3D6E; }
+
+/* Corporate display: navy, tighter */
+html[data-theme="corporate-minimal"] .section-title { font-weight: 700; color: #142033; }
+html[data-theme="corporate-minimal"] .eyebrow { color: #1D5EA0; letter-spacing: 0.16em; font-size: 0.68rem; }
+html[data-theme="corporate-minimal"] .eyebrow::before { background: #1D5EA0; }
+
+/* Cards: white with blue top border */
+html[data-theme="corporate-minimal"] .glass-card {
+  border: 1px solid #DCE2EC;
+  border-top: 3px solid #1D5EA0;
+  box-shadow: 0 1px 3px rgba(20, 32, 51, 0.06);
+}
+html[data-theme="corporate-minimal"] .glass-card:hover {
+  border-top-color: #2E7BD6;
+  box-shadow: 0 10px 26px rgba(20, 32, 51, 0.1);
+}
+
+html[data-theme="corporate-minimal"] .stats-panel { border-top: 3px solid #1D5EA0; }
+html[data-theme="corporate-minimal"] .stat__value { color: #0F3D6E; }
+
+html[data-theme="corporate-minimal"] .coverage-panel {
+  background: linear-gradient(120deg, #10233B, #16406B);
+}
+html[data-theme="corporate-minimal"] .cta-band { background: linear-gradient(120deg, #10233B, #16406B); }
+
+html[data-theme="corporate-minimal"] .site-footer { border-top: 0; }
+html[data-theme="corporate-minimal"] .footer-heading { color: #7FA8D9; }
+html[data-theme="corporate-minimal"] .footer-col a { color: #DCE5F2; opacity: 0.9; }
+html[data-theme="corporate-minimal"] .footer-brand p,
+html[data-theme="corporate-minimal"] .footer-bottom__inner { color: #93A4BC; }
+html[data-theme="corporate-minimal"] .footer-contact .icon { color: #7FA8D9; }
+html[data-theme="corporate-minimal"] .footer-bottom { border-top-color: rgba(255, 255, 255, 0.12); }
+html[data-theme="corporate-minimal"] .footer-tagline { color: #7FA8D9; }
+html[data-theme="corporate-minimal"] .footer-catalogue {
+  background: transparent; border-color: rgba(255, 255, 255, 0.3); color: #E6ECF5;
+}
+
+html[data-theme="corporate-minimal"] ::selection { background: #1D5EA0; color: #fff; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="corporate-minimal"] {
+  --cta-bg: #1D5EA0;
+  --cta-text: #FFFFFF;
+  --cta-border: rgba(255, 255, 255, 0.35);
+  --cta-hover-bg: #2E66C2;
+  --cta-hover-text: #FFFFFF;
+  --cta-hover-border: rgba(255, 255, 255, 0.6);
+  --cta-focus: #FFFFFF;
+  --cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}

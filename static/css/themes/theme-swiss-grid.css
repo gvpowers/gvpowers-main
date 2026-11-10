@@ -1,0 +1,103 @@
+/* ============================================================
+   GV POWERS — THEME 08 · SWISS GRID
+   Asymmetric modular grid, oversized grotesque typography,
+   pure black on paper with one loud red, visible grid lines,
+   flat everything (radius 0, no shadows).
+   ============================================================ */
+
+html[data-theme="swiss-grid"] {
+  --bg: #F4F4F2;
+  --bg-alt: #EAEAE7;
+  --surface: #FFFFFF;
+  --surface-2: #EDEDEC;
+  --ink: #17171A;
+  --ink-soft: #5C5C60;
+  --headline: #17171A;
+  --on-dark: #F4F4F2;
+  --ivory: #F4F4F2;
+  --line: #1A1A1A;
+  --line-strong: #1A1A1A;
+  --sage: #D92B2B;
+  --sage-deep: #B22222;
+  --sage-dark: #8A1A1A;
+  --sand: #D92B2B;
+  --sand-soft: #F5E3E3;
+  --deep: #101012;
+  --card-surface: #FFFFFF;
+  --border-subtle: #D9D9D6;
+  --accent: #17171A;
+  --accent-contrast: #F4F4F2;
+  --nav-bg: #F4F4F2;
+  --nav-line: #1A1A1A;
+  --footer-bg: #F4F4F2;
+  --radius-lg: 0px;
+  --radius-md: 0px;
+  --radius-sm: 0px;
+  --btn-radius: 0px;
+  --font-head: "Archivo", Arial, sans-serif;
+  --font-body: "Inter", Arial, sans-serif;
+  --shadow-soft: none;
+  --shadow-lift: none;
+  --shadow-pop: 0 24px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Header: strong black baseline, index-like left brand + red dot */
+html[data-theme="swiss-grid"] .brand__logo { filter: none; }
+html[data-theme="swiss-grid"] .brand::after {
+  content: "";
+  width: 10px; height: 10px; border-radius: 50%;
+  background: #D92B2B;
+}
+html[data-theme="swiss-grid"] .glass-card { border-color: #1A1A1A; }
+html[data-theme="swiss-grid"] .section-header-line { display: none; }
+
+/* Typography: tight grotesque, big scale jumps */
+html[data-theme="swiss-grid"] .section-title { font-weight: 800; letter-spacing: -0.03em; }
+html[data-theme="swiss-grid"] .eyebrow {
+  color: #D92B2B;
+  letter-spacing: 0.2em;
+  font-size: 0.66rem;
+}
+html[data-theme="swiss-grid"] .eyebrow::before {
+  width: 0; height: 0; margin-right: 8px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #D92B2B;
+  background: none;
+}
+
+/* Numbered sections: red index numerals */
+html[data-theme="swiss-grid"] .stats-panel { border: 2px solid #1A1A1A; }
+html[data-theme="swiss-grid"] .stat__value { color: #17171A; font-weight: 800; }
+html[data-theme="swiss-grid"] .stat + .stat::before { background: #1A1A1A; width: 2px; }
+html[data-theme="swiss-grid"] .projects-stat strong { color: #D92B2B; font-weight: 800; }
+html[data-theme="swiss-grid"] .projects-stats { border: 2px solid #1A1A1A; }
+
+/* Flat cards with hover slide */
+html[data-theme="swiss-grid"] .glass-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0 #D92B2B;
+  border-color: #1A1A1A;
+}
+
+/* Buttons: black block with red roll-over */
+html[data-theme="swiss-grid"] .btn--primary { background: #17171A; color: #F4F4F2; }
+html[data-theme="swiss-grid"] .btn--primary:hover { background: #D92B2B; color: #fff; }
+html[data-theme="swiss-grid"] .btn--dark { background: #17171A; }
+html[data-theme="swiss-grid"] .btn--dark:hover { background: #D92B2B; }
+html[data-theme="swiss-grid"] .btn--glass { border: 2px solid #17171A; }
+html[data-theme="swiss-grid"] .btn--catalogue { border: 2px solid #17171A; }
+
+html[data-theme="swiss-grid"] ::selection { background: #D92B2B; color: #fff; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="swiss-grid"] {
+  --cta-bg: #F4F4F2;
+  --cta-text: #17171A;
+  --cta-border: #17171A;
+  --cta-hover-bg: #B22222;
+  --cta-hover-text: #FFFFFF;
+  --cta-hover-border: #FFFFFF;
+  --cta-focus: #D92B2B;
+  --cta-shadow: 4px 4px 0 rgba(255, 255, 255, 0.85);
+}

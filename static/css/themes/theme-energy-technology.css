@@ -1,0 +1,122 @@
+/* ============================================================
+   GV POWERS — THEME 05 · ENERGY TECHNOLOGY
+   Renewable-energy tech identity: deep-green ink, electric
+   leaf green accent, split hero with angled energy band,
+   pill buttons, bright rounded cards.
+   ============================================================ */
+
+html[data-theme="energy-technology"] {
+  --bg: #F6FAF7;
+  --bg-alt: #E8F2EB;
+  --surface: #FFFFFF;
+  --surface-2: #EDF5EF;
+  --ink: #14251C;
+  --ink-soft: #567061;
+  --headline: #0F2E1D;
+  --on-dark: #F4FBF6;
+  --ivory: #F4FBF6;
+  --line: #D1E3D8;
+  --line-strong: #9FBCAB;
+  --sage: #1E9E5C;
+  --sage-deep: #157A45;
+  --sage-dark: #0E6238;
+  --sand: #F0C218;
+  --sand-soft: #F4E9B8;
+  --deep: #0E1F16;
+  --card-surface: #FFFFFF;
+  --border-subtle: #D1E3D8;
+  --accent: #1E9E5C;
+  --accent-contrast: #FFFFFF;
+  --nav-bg: #F6FAF7;
+  --nav-line: #D1E3D8;
+  --footer-bg: #0E1F16;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 12px;
+  --btn-radius: 999px;
+  --font-head: "Sora", "Segoe UI", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --shadow-soft: 0 4px 16px rgba(14, 47, 29, 0.08);
+  --shadow-lift: 0 18px 40px rgba(14, 47, 29, 0.14);
+}
+
+/* Dynamic split hero: green gradient side meets photo */
+html[data-theme="energy-technology"] .hero__overlay {
+  background:
+    linear-gradient(100deg,
+      rgba(10, 44, 26, 0.85) 0%,
+      rgba(10, 44, 26, 0.66) 40%,
+      rgba(10, 44, 26, 0.12) 75%),
+    linear-gradient(0deg,
+      rgba(10, 44, 26, 0.35) 0%,
+      transparent 30%);
+}
+html[data-theme="energy-technology"] .hero__content {
+  position: relative;
+  padding-left: 0;
+}
+html[data-theme="energy-technology"] .hero__eyebrow {
+  color: #7EE2A8;
+}
+html[data-theme="energy-technology"] .hero__eyebrow::before { background: #7EE2A8; }
+html[data-theme="energy-technology"] .hero__title {
+  background: linear-gradient(100deg, #FFFFFF 55%, #A9E8C3);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Pill green energy band CTA */
+html[data-theme="energy-technology"] .btn--primary {
+  background: linear-gradient(120deg, #1E9E5C, #157A45);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(30, 158, 92, 0.35);
+}
+html[data-theme="energy-technology"] .btn--dark { background: #0E1F16; }
+html[data-theme="energy-technology"] .btn--glass { border-color: #0E6238; color: #0E6238; }
+
+/* Bright rounded cards with soft green hover ring */
+html[data-theme="energy-technology"] .service-card,
+html[data-theme="energy-technology"] .solution-tile {position: relative;}
+html[data-theme="energy-technology"] .glass-card:hover { box-shadow: 0 0 0 3px rgba(30, 158, 92, 0.35), var(--shadow-lift); }
+
+/* Telemetry-style stats */
+html[data-theme="energy-technology"] .stats-panel {
+  background: linear-gradient(160deg, #0E1F16, #1C3A2A);
+  color: #F4FBF6;
+}
+html[data-theme="energy-technology"] .stat__value { color: #7EE2A8; }
+html[data-theme="energy-technology"] .stat__label { color: rgba(244, 251, 246, 0.75); }
+html[data-theme="energy-technology"] .stat + .stat::before {
+  background: linear-gradient(180deg, transparent, rgba(126, 226, 168, 0.35), transparent);
+}
+html[data-theme="energy-technology"] .projects-stat strong { color: #0E6238; }
+
+/* Leaf-green eyebrow */
+html[data-theme="energy-technology"] .eyebrow { color: #157A45; }
+html[data-theme="energy-technology"] .eyebrow::before {
+  width: 4px; height: 16px; border-radius: 2px;
+  background: #F0C218;
+}
+
+/* Coverage band */
+html[data-theme="energy-technology"] .coverage-panel {
+  background: linear-gradient(120deg, rgba(14, 31, 22, 0.97), rgba(24, 64, 44, 0.96)),
+    url("../images/solar/dusk-field.jpg") center/cover;
+}
+html[data-theme="energy-technology"] .cta-band { background: #0E1F16; }
+
+html[data-theme="energy-technology"] ::selection { background: #7EE2A8; color: #0E1F16; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="energy-technology"] {
+  --cta-bg: #F0C218;
+  --cta-text: #14251C;
+  --cta-border: rgba(20, 37, 28, 0);
+  --cta-hover-bg: #FFD54A;
+  --cta-hover-text: #14251C;
+  --cta-hover-border: rgba(20, 37, 28, 0);
+  --cta-focus: #FFFFFF;
+  --cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}
+html[data-theme="energy-technology"] .coverage-panel .btn--light { background: none; }

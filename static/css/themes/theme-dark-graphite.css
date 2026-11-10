@@ -1,0 +1,116 @@
+/* ============================================================
+   GV POWERS — THEME 06 · DARK GRAPHITE
+   Deep graphite surfaces, controlled contrast, restrained
+   warm-brass accent, premium dark interface with a light-on-
+   dark typography hierarchy.
+   ============================================================ */
+
+html[data-theme="dark-graphite"] {
+  --bg: #131518;
+  --bg-alt: #1A1D21;
+  --surface: #1E2226;
+  --surface-2: #262B30;
+  --ink: #E8EAE8;
+  --ink-soft: #A2A8A4;
+  --headline: #F3F4F2;
+  --on-dark: #F3F4F2;
+  --ivory: #F3F4F2;
+  --line: #2F3439;
+  --line-strong: #474E55;
+  --sage: #A8B0AA;
+  --sage-deep: #C9CFCA;
+  --sage-dark: #D8DDD8;
+  --sand: #D9B380;
+  --sand-soft: #3A342C;
+  --deep: #0C0E10;
+  --card-surface: #1E2226;
+  --border-subtle: #2F3439;
+  --accent: #D9B380;
+  --accent-contrast: #191B16;
+  --nav-bg: #0F1113;
+  --nav-line: #23272B;
+  --footer-bg: #0F1113;
+  --radius-lg: 14px;
+  --radius-md: 11px;
+  --radius-sm: 9px;
+  --btn-radius: 10px;
+  --font-head: "Manrope", "Segoe UI", sans-serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
+  --shadow-soft: 0 4px 18px rgba(0, 0, 0, 0.4);
+  --shadow-lift: 0 20px 44px rgba(0, 0, 0, 0.55);
+}
+
+/* Full dark theming of shared components */
+html[data-theme="dark-graphite"] body { animation: none; }
+html[data-theme="dark-graphite"] .nav-links__link { color: #D9DEDA; }
+html[data-theme="dark-graphite"] .nav-links__link:hover,
+html[data-theme="dark-graphite"] .nav-links__link.is-active { color: #F3F4F2; }
+html[data-theme="dark-graphite"] .nav-toggle { background: #1E2226; border-color: #2F3439; }
+html[data-theme="dark-graphite"] .nav-toggle__bar { background: #E8EAE8; }
+html[data-theme="dark-graphite"] .dropdown { background: #1E2226; border-color: #2F3439; box-shadow: var(--shadow-lift); }
+html[data-theme="dark-graphite"] .dropdown__link:hover { background: #262B30; color: #F3F4F2; }
+html[data-theme="dark-graphite"] .glass-button { background: #262B30; border-color: #474E55; color: #F3F4F2; }
+html[data-theme="dark-graphite"] .glass-button:hover { background: #30353B; }
+
+html[data-theme="dark-graphite"] .brand__est { color: #D9B380; }
+html[data-theme="dark-graphite"] .eyebrow { color: #D9B380; }
+html[data-theme="dark-graphite"] .eyebrow::before { background: #D9B380; }
+
+/* Dark hero overlay handled by shared dark gradients */
+html[data-theme="dark-graphite"] .hero__overlay {
+  background:
+    linear-gradient(90deg, rgba(12, 14, 16, 0.74) 0%, rgba(12, 14, 16, 0.5) 46%, rgba(12, 14, 16, 0.2) 78%),
+    linear-gradient(180deg, rgba(12, 14, 16, 0.4), transparent 40%, rgba(12, 14, 16, 0.5) 100%);
+}
+
+/* Cards: elevated dark surfaces with brass hover edge */
+html[data-theme="dark-graphite"] .glass-card { border-color: #2F3439; }
+html[data-theme="dark-graphite"] .glass-card:hover {
+  border-color: #D9B380;
+  box-shadow: 0 0 0 1px rgba(217, 179, 128, 0.25), var(--shadow-lift);
+}
+
+html[data-theme="dark-graphite"] .btn--dark { background: #E8EAE8; color: #131518; }
+html[data-theme="dark-graphite"] .btn--dark:hover { background: #FFFFFF; }
+html[data-theme="dark-graphite"] .btn--glass { border-color: #474E55; color: #E8EAE8; }
+
+/* Stats: recessed panels */
+html[data-theme="dark-graphite"] .stats-panel { background: #1A1D21; }
+html[data-theme="dark-graphite"] .stat__value { color: #D9B380; }
+html[data-theme="dark-graphite"] .stat__label { color: #A2A8A4; }
+html[data-theme="dark-graphite"] .projects-stat strong { color: #D9B380; }
+html[data-theme="dark-graphite"] .projects-stat__text { color: #F3F4F2; }
+
+/* Forms + banners */
+html[data-theme="dark-graphite"] .form-field input,
+html[data-theme="dark-graphite"] .form-field select,
+html[data-theme="dark-graphite"] .form-field textarea { background: #1A1D21; border-color: #2F3439; color: #E8EAE8; }
+html[data-theme="dark-graphite"] .enquiry { background: #1A1D21; border-color: #2F3439; }
+html[data-theme="dark-graphite"] .form-banner--success { background: rgba(217, 179, 128, 0.12); border-color: rgba(217, 179, 128, 0.4); color: #E7C89F; }
+html[data-theme="dark-graphite"] .form-field label { color: #D9DEDA; }
+
+html[data-theme="dark-graphite"] .site-footer { border-top-color: #23272B; }
+html[data-theme="dark-graphite"] .footer-heading { color: #D9B380; }
+html[data-theme="dark-graphite"] .footer-col a { color: #C4C9C4; opacity: 0.9; }
+html[data-theme="dark-graphite"] .footer-brand p,
+html[data-theme="dark-graphite"] .footer-bottom__inner { color: #8B918D; }
+html[data-theme="dark-graphite"] .footer-contact .icon { color: #D9B380; }
+html[data-theme="dark-graphite"] .footer-tagline { color: #D9B380; }
+html[data-theme="dark-graphite"] .footer-bottom { border-top-color: #23272B; }
+html[data-theme="dark-graphite"] .footer-catalogue { background: #1E2226; border-color: #2F3439; color: #E8EAE8; }
+
+html[data-theme="dark-graphite"] .check-list .icon { background: #D9B380; color: #191B16; }
+html[data-theme="dark-graphite"] .section--sand { background: #1D2124; }
+html[data-theme="dark-graphite"] ::selection { background: #D9B380; color: #191B16; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="dark-graphite"] {
+  --cta-bg: #D9B380;
+  --cta-text: #191B16;
+  --cta-border: rgba(217, 179, 128, 0.4);
+  --cta-hover-bg: #E7C69B;
+  --cta-hover-text: #191B16;
+  --cta-hover-border: rgba(217, 179, 128, 0.7);
+  --cta-focus: #F3F4F2;
+  --cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}

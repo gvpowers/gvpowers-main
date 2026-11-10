@@ -1,0 +1,128 @@
+/* ============================================================
+   GV POWERS — THEME 02 · LUXURY HERITAGE
+   Warm ivory surfaces, serif Playfair display headings,
+   bronze-gold accents, generous editorial spacing, refined
+   corporate-history presentation.
+   ============================================================ */
+
+html[data-theme="luxury-heritage"] {
+  --bg: #FBF8F3;
+  --bg-alt: #F3EDE2;
+  --surface: #FFFDFA;
+  --surface-2: #F6F0E5;
+  --ink: #2B2822;
+  --ink-soft: #6F675C;
+  --headline: #2B2822;
+  --on-dark: #FBF8F3;
+  --ivory: #FBF8F3;
+  --line: #E3DACB;
+  --line-strong: #C9BCA3;
+  --sage: #C7A97B;
+  --sage-deep: #B08F5F;
+  --sage-dark: #8C6F45;
+  --sand: #E4CDA8;
+  --sand-soft: #F1E4D0;
+  --deep: #2C2A28;
+  --card-surface: #FFFDFA;
+  --border-subtle: #E7DFD2;
+  --accent: #2C2A28;
+  --accent-contrast: #FBF8F3;
+  --nav-bg: #FBF8F3;
+  --nav-line: #E3DACB;
+  --footer-bg: #2C2A28;
+  --radius-lg: 4px;
+  --radius-md: 3px;
+  --radius-sm: 2px;
+  --btn-radius: 0px;
+  --font-head: "Playfair Display", Georgia, serif;
+  --font-body: "Lora", Georgia, serif;
+  --shadow-soft: 0 1px 2px rgba(44, 42, 40, 0.06);
+  --shadow-lift: 0 16px 40px rgba(44, 42, 40, 0.12);
+}
+
+/* Serif identity everywhere */
+html[data-theme="luxury-heritage"] .eyebrow {
+  color: #8C6F45;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+html[data-theme="luxury-heritage"] .section-title { font-weight: 600; letter-spacing: 0; }
+html[data-theme="luxury-heritage"] .hero__title,
+html[data-theme="luxury-heritage"] .page-hero__title {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+html[data-theme="luxury-heritage"] .hero__title { font-size: clamp(2.6rem, 6vw, 4.8rem); }
+
+/* Hairline-centred nav */
+html[data-theme="luxury-heritage"] .site-header { border-bottom-width: 2px; }
+html[data-theme="luxury-heritage"] .nav-links__link { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.78rem; font-weight: 600; }
+html[data-theme="luxury-heritage"] .brand__est { font-style: italic; }
+
+/* Double-frame cards: thin outer border inset feel */
+html[data-theme="luxury-heritage"] .glass-card {
+  border: 1px solid var(--line-strong);
+  box-shadow: none;
+}
+html[data-theme="luxury-heritage"] .glass-card:hover {
+  border-color: var(--sage-dark);
+  box-shadow: 0 10px 30px rgba(44, 42, 40, 0.1);
+}
+html[data-theme="luxury-heritage"] .framed-image { border: 0; }
+html[data-theme="luxury-heritage"] .framed-image::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(255, 253, 250, 0.85);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Gold rule buttons */
+html[data-theme="luxury-heritage"] .btn { letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.8rem; font-weight: 700; }
+html[data-theme="luxury-heritage"] .btn--primary { background: linear-gradient(120deg, #B08F5F, #8C6F45); color: #FBF8F3; }
+html[data-theme="luxury-heritage"] .btn--dark { background: #2C2A28; }
+
+/* Editorial stats: elegant numerals with gold circles */
+html[data-theme="luxury-heritage"] .stats-panel { background: transparent; border: 0; box-shadow: none; }
+html[data-theme="luxury-heritage"] .stat__value {
+  font-family: var(--font-head);
+  font-weight: 600;
+  color: #2C2A28;
+}
+html[data-theme="luxury-heritage"] .stat {
+  background: #FFFDFA;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  margin: 4px;
+}
+html[data-theme="luxury-heritage"] .stat + .stat::before { display: none; }
+
+/* Dark heritage footer */
+html[data-theme="luxury-heritage"] .site-footer { border-top: 0; }
+html[data-theme="luxury-heritage"] .site-footer,
+html[data-theme="luxury-heritage"] .footer-col a { color: #EDE4D3; }
+html[data-theme="luxury-heritage"] .footer-brand p,
+html[data-theme="luxury-heritage"] .footer-bottom__inner { color: rgba(237, 228, 211, 0.72); }
+html[data-theme="luxury-heritage"] .footer-heading { color: #C7A97B; letter-spacing: 0.26em; }
+html[data-theme="luxury-heritage"] .footer-contact .icon { color: #C7A97B; }
+html[data-theme="luxury-heritage"] .footer-bottom { border-top-color: rgba(255, 253, 250, 0.16); }
+html[data-theme="luxury-heritage"] .footer-catalogue {
+  background: transparent; border-color: rgba(237, 228, 211, 0.4); color: #EDE4D3;
+}
+html[data-theme="luxury-heritage"] .footer-tagline { color: #C7A97B; font-family: var(--font-head); }
+
+html[data-theme="luxury-heritage"] ::selection { background: #C7A97B; color: #2C2A28; }
+
+/* ---- Consultation CTA (dark coverage panel) ---- */
+html[data-theme="luxury-heritage"] {
+  --cta-bg: #C7A97B;
+  --cta-text: #26221C;
+  --cta-border: #8C6F45;
+  --cta-hover-bg: #D8BC8F;
+  --cta-hover-text: #26221C;
+  --cta-hover-border: #8C6F45;
+  --cta-focus: #F5EDE0;
+  --cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}
