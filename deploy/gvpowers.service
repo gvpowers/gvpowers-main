@@ -1,0 +1,27 @@
+# systemd service for the GV POWERS corporate website
+# Install to: /etc/systemd/system/gvpowers.service
+# Adjust User/WorkingDirectory/EnvironmentFile paths to your server layout.
+
+[Unit]
+Description=GV POWERS corporate website (Flask + Gunicorn)
+After=network.target
+
+[Service]
+Type=notify
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/gvpowers-corporate-website
+Environment="PATH=/var/www/gvpowers-corporate-website/.venv/bin"
+EnvironmentFile=/var/www/gvpowers-corporate-website/.env
+ExecStart=/var/www/gvpowers-corporate-website/.venv/bin/gunicorn -c gunicorn.conf.py app:app
+Restart=always
+RestartSec=5
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ReadWritePaths=/var/www/gvpowers-corporate-website/instance /var/log/gvpowers
+
+[Install]
+WantedBy=multi-user.target
