@@ -1,0 +1,28 @@
+{% extends "_admin_base.html" %}
+{% block admin_title %}{% block admin_page_title %}{% endblock %} — Admin — GV POWERS{% endblock %}
+{% macro nav(active) %}
+<aside class="admin-sidebar">
+  <img class="admin-sidebar__logo" src="{{ url_for('static', filename='images/branding/logo-full.png') }}" alt="GV Powers" width="240" height="188">
+  <nav aria-label="Admin sections">
+    <ul>
+      <li><a class="{{ 'is-active' if active == 'dashboard' }}" href="{{ url_for('admin.dashboard') }}">Overview</a></li>
+      <li><a class="{{ 'is-active' if active == 'projects' }}" href="{{ url_for('admin.projects') }}">Project Locations</a></li>
+      <li><a class="{{ 'is-active' if active == 'map' }}" href="{{ url_for('admin.map_manager') }}">Map Management</a></li>
+      <li><a href="{{ url_for('main.projects') }}" target="_blank" rel="noopener">Public Site &rarr;</a></li>
+    </ul>
+  </nav>
+  <form method="post" action="{{ url_for('admin.logout') }}">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <button type="submit" class="admin-logout">Logout</button>
+  </form>
+  <a class="admin-backlink" href="{{ url_for('main.index') }}">View website &rarr;</a>
+</aside>
+{% endmacro %}
+{% block admin_content %}
+<div class="admin-shell">
+  {{ nav(active_nav) }}
+  <div class="admin-content">
+    {% block admin_page %}{% endblock %}
+  </div>
+</div>
+{% endblock %}

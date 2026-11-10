@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% set form_values = form_values or {} %}
+
+{% block page_id %}contact{% endblock %}
+{% block title %}Contact Us — GV POWERS | Chennai &amp; Salem{% endblock %}
+{% block description %}Contact GV POWERS: call +91 98940 79090 / +91 98940 79095, email gvpowerssalem@gmail.com. Open 9 AM – 9 PM. Chennai and Salem, Tamil Nadu.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json" nonce="{{ g.csp_nonce }}">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact GV Powers",
+  "url": "{{ site_url }}/contact"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero--short">
+  <picture class="page-hero__media">
+    <img src="{{ url_for('static', filename='images/about/technician.jpg') }}"
+         alt="GV Powers electrician checking a control panel" width="1600" height="900" loading="eager" decoding="async">
+  </picture>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="container page-hero__content">
+    <p class="eyebrow eyebrow--light" data-reveal>Contact</p>
+    <h1 class="page-hero__title" data-reveal data-reveal-delay="90">Let's talk about<br>your power needs.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-grid">
+    <div class="contact-cards">
+      <div class="glass-card contact-card" data-reveal>
+        <span class="glass-icon glass-icon--dark">{{ icon('phone') }}</span>
+        <h3>Call Us</h3>
+        <a href="tel:+91{{ company.phone_primary }}">{{ company.phone_primary_display }}</a>
+        <a href="tel:+91{{ company.phone_secondary }}">{{ company.phone_secondary_display }}</a>
+      </div>
+      <div class="glass-card contact-card" data-reveal data-reveal-delay="90">
+        <span class="glass-icon glass-icon--dark">{{ icon('mail') }}</span>
+        <h3>Email</h3>
+        <a href="mailto:{{ company.email }}">{{ company.email }}</a>
+        <span class="contact-card__meta">We reply within one working day.</span>
+      </div>
+      <div class="glass-card contact-card" data-reveal data-reveal-delay="180">
+        <span class="glass-icon glass-icon--dark">{{ icon('clock') }}</span>
+        <h3>Working Hours</h3>
+        <p>{{ company.hours }}</p>
+        <span class="contact-card__meta">All days of the week.</span>
+      </div>
+      <div class="glass-card contact-card" data-reveal data-reveal-delay="270">
+        <span class="glass-icon glass-icon--dark">{{ icon('map-pin') }}</span>
+        <h3>Locations</h3>
+        <p>Chennai, Tamil Nadu</p>
+        <p>Salem, Tamil Nadu</p>
+        <span class="contact-card__meta">Verified branch addresses are being confirmed and will be published here.</span>
+      </div>
+      <a class="whatsapp-card" href="https://wa.me/{{ company.whatsapp }}" rel="noopener" data-reveal data-reveal-delay="360">
+        <span class="glass-icon glass-icon--dark">{{ icon('chat') }}</span>
+        <span>
+          <strong>WhatsApp Us</strong>
+          <span>Quick enquiry on WhatsApp — fastest response.</span>
+        </span>
+        {{ icon('arrow-up-right', 'wa-arrow') }}
+      </a>
+    </div>
+
+    <div class="enquiry glass-card" id="enquiry" data-reveal data-reveal-delay="120">
+      <h2>Send an Enquiry</h2>
+      <p class="enquiry__sub">Tell us what you need — our engineers will get back to you.</p>
+
+      {% if request.args.get('sent') %}
+        <div class="form-banner form-banner--success" role="status">
+          {{ icon('check') }} Thank you! Your enquiry has been received. Our team will contact you shortly.
+        </div>
+      {% endif %}
+      {% if error %}
+        <div class="form-banner form-banner--error" role="alert">{{ error }}</div>
+      {% endif %}
+      {% if errors %}
+        <div class="form-banner form-banner--error" role="alert">
+          <ul>
+            {% for e in errors %}<li>{{ e }}</li>{% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <form method="post" action="{{ url_for('contact.send') }}" id="enquiry-form" novalidate>
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        {# Honeypot — must remain empty #}
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form-field">
+          <label for="name">Full Name <span class="req">*</span></label>
+          <input type="text" id="name" name="name" required minlength="2" maxlength="120"
+                 placeholder="Your name" value="{{ form_values.name | default('') }}">
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" required maxlength="254"
+                   placeholder="you@example.com" value="{{ form_values.email | default('') }}">
+          </div>
+          <div class="form-field">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input type="tel" id="phone" name="phone" required maxlength="25"
+                   placeholder="98xxx xxxxx" value="{{ form_values.phone | default('') }}">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="service">Service Interested In <span class="req">*</span></label>
+          <select id="service" name="service" required>
+            <option value="" {% if not form_values.service | default('') %}selected{% endif %} disabled>Choose a service…</option>
+            {% for value, label in service_choices %}
+              <option value="{{ value }}" {% if form_values.service | default('') == value %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="message">Message <span class="req">*</span></label>
+          <textarea id="message" name="message" rows="5" required minlength="10" maxlength="2000"
+                    placeholder="Describe your requirement — location, load, timeline…">{{ form_values.message | default('') }}</textarea>
+        </div>
+
+        <button class="btn btn--dark btn--block" type="submit" id="enquiry-submit">
+          {{ icon('send') }} Submit Enquiry
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Reach Us</p>
+      <h2 class="section-title">Two cities. One phone number away.</h2>
+    </div>
+    <div class="locations-grid">
+      <div class="glass-card location-card" data-reveal>
+        <span class="glass-icon">{{ icon('map-pin') }}</span>
+        <h3>Chennai</h3>
+        <p>Operating location — serving the Chennai metropolitan region and surrounding districts.</p>
+        <p class="location-card__meta">{{ icon('clock') }} {{ company.hours }}</p>
+      </div>
+      <div class="glass-card location-card" data-reveal data-reveal-delay="120">
+        <span class="glass-icon">{{ icon('map-pin') }}</span>
+        <h3>Salem</h3>
+        <p>Operating location — base for solar EPC and generator services across western Tamil Nadu.</p>
+        <p class="location-card__meta">{{ icon('clock') }} {{ company.hours }}</p>
+      </div>
+    </div>
+    <p class="map-note" data-reveal>
+      {{ icon('map-pin') }} Salem record: {{ company.salem_address_note }}.
+      Google Maps will be embedded once the current business addresses are verified.
+    </p>
+  </div>
+</section>
+{% endblock %}

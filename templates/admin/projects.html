@@ -1,0 +1,137 @@
+{% extends "_admin_shell.html" %}
+{% set active_nav = "projects" %}
+{% block admin_page_title %}Project Locations{% endblock %}
+{% block admin_page %}
+<h1 class="admin-h1">Project locations</h1>
+<p class="admin-note">Add, edit and delete mapped project markers. These appear on the
+  public India map and are counted automatically.</p>
+
+<div class="admin-split">
+  <div class="admin-form glass-card">
+    <h2 class="admin-h2" id="form-title">Add project location</h2>
+
+    <form id="project-form" enctype="multipart/form-data" data-mode="create">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <input type="hidden" id="project-id" name="project_id" value="">
+
+      <label class="admin-label" for="p-name">Project name *</label>
+      <input class="admin-input" id="p-name" name="name" required maxlength="120" placeholder="e.g. Rooftop solar — Coimbatore">
+
+      <div class="admin-row">
+        <div>
+          <label class="admin-label" for="p-category">Category *</label>
+          <select class="admin-input" id="p-category" name="category" required>
+            <option value="solar">Solar</option>
+            <option value="ups">UPS</option>
+            <option value="generators">Generators</option>
+            <option value="other">Other power solutions</option>
+          </select>
+        </div>
+        <div>
+          <label class="admin-label" for="p-status">Status *</label>
+          <select class="admin-input" id="p-status" name="status" required>
+            <option value="completed">Completed</option>
+            <option value="ongoing">Ongoing</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="admin-row">
+        <div>
+          <label class="admin-label" for="p-state">State</label>
+          <select class="admin-input" id="p-state" name="state">
+            <option value="">— Select —</option>
+            {% for s in states %}<option value="{{ s }}">{{ s }}</option>{% endfor %}
+          </select>
+        </div>
+        <div>
+          <label class="admin-label" for="p-district">District</label>
+          <input class="admin-input" id="p-district" name="district" maxlength="80">
+        </div>
+        <div>
+          <label class="admin-label" for="p-locality">City / locality</label>
+          <input class="admin-input" id="p-locality" name="locality" maxlength="80">
+        </div>
+      </div>
+
+      <div class="admin-row admin-row--coords">
+        <div>
+          <label class="admin-label" for="p-lat">Latitude *</label>
+          <input class="admin-input" id="p-lat" name="latitude" type="number" step="any"
+                 min="-90" max="90" required placeholder="11.6643">
+        </div>
+        <div>
+          <label class="admin-label" for="p-lng">Longitude *</label>
+          <input class="admin-input" id="p-lng" name="longitude" type="number" step="any"
+                 min="-180" max="180" required placeholder="78.1462">
+        </div>
+      </div>
+      <p class="admin-hint">You can also click the preview map — the marker fills the
+        coordinates and can be dragged to correct the position.</p>
+
+      <label class="admin-label" for="p-desc">Short description (≤500 chars)</label>
+      <textarea class="admin-input" id="p-desc" name="description" rows="3" maxlength="500"></textarea>
+
+      <div class="admin-row">
+        <div>
+          <label class="admin-label" for="p-date">Installation date</label>
+          <input class="admin-input" id="p-date" name="installation_date" type="date">
+        </div>
+        <div>
+          <label class="admin-label" for="p-capacity">Capacity (only if verified)</label>
+          <input class="admin-input" id="p-capacity" name="capacity" maxlength="40" placeholder="e.g. 25 kW">
+        </div>
+      </div>
+
+      <label class="admin-label" for="p-image">Image (png/jpg/webp, ≤2MB, optional)</label>
+      <input class="admin-input admin-file" id="p-image" name="image" type="file" accept=".png,.jpg,.jpeg,.webp">
+
+      <div class="admin-form__actions">
+        <button class="admin-btn admin-btn--primary" type="submit" id="submit-btn">Save project</button>
+        <button class="admin-btn admin-btn--danger" type="button" id="delete-btn" hidden>Delete…</button>
+        <button class="admin-btn admin-btn--ghost" type="button" id="reset-btn">Clear form</button>
+      </div>
+      <p id="form-result" class="admin-note" aria-live="polite"></p>
+    </form>
+
+    <div class="admin-preview-map" id="admin-preview-map" aria-label="Marker preview map"></div>
+  </div>
+
+  <div class="admin-list">
+    <h2 class="admin-h2">Saved locations <span class="admin-badge">{{ projects|length }}</span></h2>
+    <p class="admin-note">Select a row to edit it. Deleting a marker also removes it from
+      the public map and lowers the mapped-location counts.</p>
+    <table class="admin-table">
+      <thead>
+        <tr><th>Name</th><th>Category</th><th>Status</th><th>Lat, Lng</th><th></th></tr>
+      </thead>
+      <tbody id="project-rows">
+        {% for p in projects %}
+        <tr data-project='{{ {
+          "id": p.id, "name": p.name, "category": p.category, "status": p.status,
+          "state": p.state, "district": p.district, "locality": p.locality,
+          "latitude": p.latitude, "longitude": p.longitude,
+          "description": p.description, "installation_date": p.installation_date,
+          "capacity": p.capacity, "image_path": p.image_path
+        } | tojson }}'>
+          <td>{{ p.name }}</td>
+          <td><span class="admin-pill admin-pill--{{ p.category }}">{{ p.category }}</span></td>
+          <td><span class="admin-pill admin-pill--{{ p.status }}">{{ p.status }}</span></td>
+          <td class="admin-lng-lat">{{ "%.4f, %.4f" | format(p.latitude, p.longitude) }}</td>
+          <td><button class="admin-btn admin-btn--ghost admin-row-edit" type="button">Edit</button></td>
+        </tr>
+        {% else %}
+        <tr><td colspan="5" class="admin-empty">No mapped locations yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+
+{% block admin_scripts %}
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet/leaflet.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+<script src="{{ url_for('static', filename='vendor/leaflet/leaflet.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/admin-map.js') }}" defer></script>
+{% endblock %}

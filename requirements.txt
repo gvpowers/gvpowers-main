@@ -1,0 +1,8 @@
+Flask>=3.0
+python-dotenv>=1.0
+
+# Production (Ubuntu server)
+gunicorn>=21.2 ; sys_platform != "win32"
+
+# Development / testing
+pytest>=8.0

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="{{ default_theme }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}GV POWERS — Powering A Better Tomorrow{% endblock %}</title>
+  <meta name="description" content="{% block description %}GV POWERS — established 1997. Reliable solar, UPS and generator solutions for homes, businesses and industries across Chennai and Salem, Tamil Nadu.{% endblock %}">
+  <link rel="canonical" href="{{ site_url }}{{ request.path | default('/') }}">
+  <meta name="theme-color" content="#A5A79B">
+
+  {# Open Graph #}
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="GV POWERS">
+  <meta property="og:title" content="{% block og_title %}GV POWERS — Powering A Better Tomorrow{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Reliable solar, UPS and generator solutions since 1997.{% endblock %}">
+  <meta property="og:url" content="{{ site_url }}{{ request.path | default('/') }}">
+  <meta property="og:image" content="{{ site_url }}/static/images/branding/og-image.jpg">
+  <meta property="og:locale" content="en_IN">
+
+  {# Twitter #}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{% block twitter_title %}GV POWERS — Powering A Better Tomorrow{% endblock %}">
+  <meta name="twitter:description" content="{% block twitter_description %}Reliable solar, UPS and generator solutions since 1997.{% endblock %}">
+  <meta name="twitter:image" content="{{ site_url }}/static/images/branding/og-image.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon/favicon.svg') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Oswald:wght@400;500;600;700&family=Sora:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=Karla:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+  <link id="theme-css" rel="stylesheet" href="{{ url_for('static', filename='css/themes/theme-' ~ default_theme ~ '.css') }}">
+
+  {% block structured_data %}{% endblock %}
+</head>
+<body data-page="{% block page_id %}{% endblock %}">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" id="site-header">
+    <nav class="glass-nav container" aria-label="Primary navigation">
+      <a class="brand" href="{{ url_for('main.index') }}" aria-label="GV POWERS — Home">
+        <img class="brand__logo" src="{{ url_for('static', filename='images/branding/logo-full.png') }}" alt="GV Powers logo" width="640" height="501">
+        <span class="brand__est">Est. {{ company.established }}</span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        {% for link in nav_links %}
+          <li class="nav-links__item {% if link.dropdown %}has-dropdown{% endif %}">
+            <a class="nav-links__link {% if request.endpoint == link.endpoint and not link.dropdown %}is-active{% endif %}"
+               href="{{ url_for(link.endpoint) }}{{ link.anchor | default('') }}">
+              {{ link.label }}
+              {% if link.dropdown %}{{ icon('chevron-down', 'caret') }}{% endif %}
+            </a>
+            {% if link.dropdown %}
+              <ul class="dropdown" role="list" aria-label="Solutions submenu">
+                {% for sub in link.dropdown %}
+                  <li><a class="dropdown__link" href="{{ url_for(sub.endpoint) }}{{ sub.anchor | default('') }}">{{ sub.label }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+
+      <a class="btn btn--catalogue glass-button" href="{{ catalogue_url }}" rel="noopener">
+        {{ icon('bag') }}<span>Catalogue</span>
+      </a>
+
+      <span class="theme-launcher">
+        <button class="glass-button theme-launcher__btn" type="button" data-theme-open
+                aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-modal"
+                aria-label="Change website theme">
+          {{ icon('sun') }}<span>Appearance</span>
+        </button>
+      </span>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile navigation" class="mobile-menu__panel">
+      <ul role="list">
+        {% for link in nav_links %}
+          <li style="--i:{{ loop.index }}">
+            <a href="{{ url_for(link.endpoint) }}{{ link.anchor | default('') }}">{{ link.label }}</a>
+            {% if link.dropdown %}
+              <ul class="mobile-submenu" role="list">
+                {% for sub in link.dropdown %}
+                  <li><a href="{{ url_for(sub.endpoint) }}{{ sub.anchor | default('') }}">{{ sub.label }}</a></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+      <a class="btn btn--primary btn--block" href="{{ catalogue_url }}" rel="noopener">
+        {{ icon('bag') }} Browse Product Catalogue
+      </a>
+      <button class="btn btn--glass btn--block theme-launcher__btn" type="button" data-theme-open
+              aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-modal"
+              aria-label="Change website theme">
+        {{ icon('sun') }} Change Website Theme
+      </button>
+      <div class="mobile-menu__contact">
+        <a href="tel:+91{{ company.phone_primary }}">{{ icon('phone') }} {{ company.phone_primary_display }}</a>
+        <a href="mailto:{{ company.email }}">{{ icon('mail') }} {{ company.email }}</a>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand brand--footer" href="{{ url_for('main.index') }}">
+          <img class="footer-logo" src="{{ url_for('static', filename='images/branding/logo-full.png') }}" alt="GV Powers — Powering A Better Tomorrow" width="1544" height="425">
+        </a>
+        <p>Powering a better tomorrow since 1997 with dependable solar, UPS and generator solutions for homes, businesses and industries across Tamil Nadu.</p>
+        <a class="footer-catalogue" href="{{ catalogue_url }}" rel="noopener">
+          {{ icon('bag') }} <span>Product Catalogue</span> {{ icon('external', 'ext') }}
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Company</h3>
+        <ul role="list">
+          <li><a href="{{ url_for('main.index') }}">Home</a></li>
+          <li><a href="{{ url_for('main.about') }}">About Us</a></li>
+          <li><a href="{{ url_for('main.projects') }}">Projects</a></li>
+          <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Solutions</h3>
+        <ul role="list">
+          <li><a href="{{ url_for('main.solar') }}">Solar Energy</a></li>
+          <li><a href="{{ url_for('main.ups') }}">UPS Systems</a></li>
+          <li><a href="{{ url_for('main.generators') }}">Generators</a></li>
+          <li><a href="{{ url_for('main.solutions') }}#battery-storage">Battery Energy Storage</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h3 class="footer-heading">Contact</h3>
+        <ul role="list" class="footer-contact">
+          <li><a href="tel:+91{{ company.phone_primary }}">{{ icon('phone') }} {{ company.phone_primary_display }}</a></li>
+          <li><a href="tel:+91{{ company.phone_secondary }}">{{ icon('phone') }} {{ company.phone_secondary_display }}</a></li>
+          <li><a href="mailto:{{ company.email }}">{{ icon('mail') }} {{ company.email }}</a></li>
+          <li><span>{{ icon('clock') }} {{ company.hours }}</span></li>
+          <li><span>{{ icon('map-pin') }} Chennai · Salem, Tamil Nadu</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container footer-bottom__inner">
+        <p>© {{ current_year }} GV POWERS. All rights reserved. · Established {{ company.established }} · <a href="{{ catalogue_url }}" rel="noopener">catalog.gvpowers.in</a></p>
+        <p class="footer-credit">
+          Developed by <a href="https://kamleshvar.online" rel="noopener">GV Kamleshvar</a>
+          <span class="credit-sep">·</span>
+          <a href="https://techorigin.online" rel="noopener">TechOrigin</a>
+        </p>
+        <p class="footer-tagline">{{ company.tagline }}</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" href="https://wa.me/{{ company.whatsapp }}" rel="noopener"
+     aria-label="Chat with GV Powers on WhatsApp" title="Chat on WhatsApp">
+    <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top" hidden>
+    {{ icon('arrow-up-right') }}
+  </button>
+
+  {# ---- Appearance / theme selector (modal) ---- #}
+  <div class="theme-modal" id="theme-modal" hidden>
+    <div class="theme-modal__panel" role="dialog" aria-modal="true" aria-labelledby="theme-modal-title">
+      <div class="theme-modal__head">
+        <div>
+          <h3 id="theme-modal-title">Website appearance</h3>
+          <p>15 complete design systems — your choice is remembered on this device.</p>
+        </div>
+        <button class="theme-modal__close" type="button" data-theme-close aria-label="Close theme selector">
+          {{ icon('close') }}
+        </button>
+      </div>
+      <div class="theme-modal__body">
+        <div class="theme-modal__grid" id="theme-modal-grid">
+          {% for t in themes %}
+            <button type="button" class="theme-option" data-theme="{{ t.id }}" aria-selected="false">
+              <span class="theme-option__preview" aria-hidden="true">
+                <span class="tp-swatch tp-swatch--{{ loop.index }}"></span>
+                <span class="tp-hero-body tp-hero-body--{{ loop.index }}"></span>
+                <span class="tp-card tp-card--{{ loop.index }}"></span>
+              </span>
+              <span class="theme-option__name">{{ loop.index }}. {{ t.label }}</span>
+            </button>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="theme-modal__foot">
+        <p class="theme-modal__note">The same company information, content and functionality in every theme.</p>
+        <button type="button" class="btn btn--ghost" id="theme-reset">Reset to default</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/header.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/theme.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/animations.js') }}" defer></script>
+  <script src="{{ url_for('static', filename='js/interactions.js') }}" defer></script>
+  {% block scripts_extra %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,148 @@
+{% extends "_admin_shell.html" %}
+{% set active_nav = "dashboard" %}
+{% block admin_page_title %}Overview{% endblock %}
+{% block admin_page %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% for category, message in messages %}
+    <p class="admin-alert admin-alert--{{ category }}" role="alert">{{ message }}</p>
+  {% endfor %}
+{% endwith %}
+<h1 class="admin-h1">Overview</h1>
+
+<div class="admin-grid-3">
+  <div class="glass-card admin-card">
+    <span class="glass-icon">{{ icon('sun') }}</span>
+    <div>
+      <p class="admin-card__value">{{ counts.solar.completed }}</p>
+      <p class="admin-card__label">Solar completed</p>
+    </div>
+  </div>
+  <div class="glass-card admin-card">
+    <span class="glass-icon">{{ icon('panel') }}</span>
+    <div>
+      <p class="admin-card__value">{{ counts.solar.ongoing }}</p>
+      <p class="admin-card__label">Solar ongoing</p>
+    </div>
+  </div>
+  <div class="glass-card admin-card">
+    <span class="glass-icon">{{ icon('mail') }}</span>
+    <div>
+      <p class="admin-card__value">{{ enquiry_count }}</p>
+      <p class="admin-card__label">Enquiries stored</p>
+    </div>
+  </div>
+  <div class="glass-card admin-card">
+    <span class="glass-icon">{{ icon('map-pin') }}</span>
+    <div>
+      <p class="admin-card__value">{{ projects|length }}</p>
+      <p class="admin-card__label">Mapped locations</p>
+    </div>
+  </div>
+  {% for c in ("ups", "generators", "other") %}
+  <div class="glass-card admin-card">
+    <span class="glass-icon">{{ icon('panel' if c != 'generators' else 'power') }}</span>
+    <div>
+      <p class="admin-card__value">{{ counts[c].total }}</p>
+      <p class="admin-card__label">{{ (c ~ " projects") | capitalize }}</p>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="glass-card admin-card admin-card--wide">
+    <span class="glass-icon glass-icon--dark">{{ icon('check') }}</span>
+    <div>
+      <p class="admin-card__value">{{ counts.all.completed }} / {{ counts.all.ongoing }}</p>
+      <p class="admin-card__label">Total completed / ongoing projects</p>
+    </div>
+  </div>
+</div>
+
+<!-- Counts management -->
+<section class="admin-section" id="counts">
+  <h2 class="admin-h2">Dynamic project counts</h2>
+  <p class="admin-note">
+    Totals = verified baseline + historical adjustments + individually mapped
+    records. Editing here updates the public website instantly — no code changes.
+    The verified baseline (solar 10 / 4) is preserved by default.
+  </p>
+  <div class="admin-counts">
+    {% for c, label in [("solar", "Solar"), ("ups", "UPS"), ("generators", "Generators"), ("other", "Other Power Solutions")] %}
+    <form method="post" action="{{ url_for('admin.counts_update') }}" class="admin-count-form glass-card">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="category" value="{{ c }}">
+      <p class="admin-count-form__title">{{ label }}
+        <span>{{ counts[c].completed }} completed · {{ counts[c].ongoing }} ongoing (current total)</span>
+      </p>
+      <div class="admin-count-fields">
+        <div>
+          <label class="admin-label">Set verified baseline</label>
+          <input type="number" min="0" name="baseline_completed" placeholder="completed" class="admin-input admin-input--sm" aria-label="{{ label }} baseline completed">
+          <input type="number" min="0" name="baseline_ongoing" placeholder="ongoing" class="admin-input admin-input--sm" aria-label="{{ label }} baseline ongoing">
+          <button type="submit" name="action" value="baseline" class="admin-btn admin-btn--ghost">Save baseline</button>
+        </div>
+        <div>
+          <label class="admin-label">+ Historical adjustment</label>
+          <input type="number" min="0" name="adj_completed" placeholder="completed +" class="admin-input admin-input--sm" aria-label="{{ label }} completed adjustment">
+          <input type="number" min="0" name="adj_ongoing" placeholder="ongoing +" class="admin-input admin-input--sm" aria-label="{{ label }} ongoing adjustment">
+          <input type="text" name="reason" placeholder="reason (required)" class="admin-input admin-input--sm admin-input--wide" aria-label="{{ label }} adjustment reason">
+          <button type="submit" name="action" value="adjust" class="admin-btn">Add adjustment</button>
+        </div>
+      </div>
+    </form>
+    {% endfor %}
+  </div>
+</section>
+<section class="admin-section" id="theme">
+  <h2 class="admin-h2">Website theme</h2>
+  <form method="post" action="{{ url_for('admin.settings_update') }}" class="admin-inline-form">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <label class="admin-label" for="default_theme">Default theme for visitors (individual choices kept in localStorage)</label>
+    <select id="default_theme" name="default_theme" class="admin-input">
+      {% for t in themes %}
+      <option value="{{ t.id }}" {{ 'selected' if t.id == default_theme }} data-glass="{{ 1 if t.id == 'glassmorphism-pro' else 0 }}">{{ loop.index }}. {{ t.label }}{{ ' (glass accent theme)' if t.id == 'glassmorphism-pro' else '' }}</option>
+      {% endfor %}
+    </select>
+    <button class="admin-btn" type="submit">Save default theme</button>
+  </form>
+  <p class="admin-hint">Each theme is a complete design system — content and functionality are identical. Legacy default-theme values are migrated automatically on start-up. <a href="{{ url_for('main.index') }}" target="_blank" rel="noopener">Preview website</a></p>
+</section>
+
+<!-- password -->
+<section class="admin-section" id="security">
+  <h2 class="admin-h2">Security settings</h2>
+  <form id="pw-form" class="admin-inline-form" data-csrf="{{ csrf_token() }}"
+        action="{{ url_for('admin.change_password') }}">
+    <div>
+      <label class="admin-label" for="current_password">Current password</label>
+      <input class="admin-input" type="password" id="current_password" name="current_password" required>
+    </div>
+    <div>
+      <label class="admin-label" for="new_password">New password (min 8 chars)</label>
+      <input class="admin-input" type="password" id="new_password" name="new_password" required minlength="8">
+    </div>
+    <button class="admin-btn" type="submit">Change password</button>
+    <p id="pw-result" class="admin-note" aria-live="polite"></p>
+  </form>
+</section>
+{% endblock %}
+
+{% block admin_scripts %}
+<script>
+  document.getElementById("pw-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var form = e.target, out = document.getElementById("pw-result");
+    var body = new URLSearchParams(new FormData(form));
+    fetch(form.action, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: body
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        out.textContent = d.ok ? d.message : d.error;
+        out.className = d.ok ? "admin-note admin-note--ok" : "admin-note";
+        if (d.ok) form.reset();
+      })
+      .catch(function () { out.textContent = "Request failed."; });
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block page_id %}solar{% endblock %}
+{% block title %}Solar Energy — Panels, On-grid, Off-grid &amp; EPC | GV POWERS{% endblock %}
+{% block description %}Rooftop and ground-mounted solar panels, on-grid and off-grid systems, solar water pumps, turnkey EPC and maintenance from GV POWERS — since 1997.{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero--short">
+  <picture class="page-hero__media">
+    <img src="{{ url_for('static', filename='images/solar/dusk-field.jpg') }}"
+         alt="Solar panels in an open field at dusk" width="1600" height="900" loading="eager" decoding="async">
+  </picture>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="container page-hero__content">
+    <p class="eyebrow eyebrow--light" data-reveal>Solar Energy</p>
+    <h1 class="page-hero__title" data-reveal data-reveal-delay="90">Harvest the sun.<br>We handle the engineering.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container solution-detail">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">Solar Panels</p>
+      <h2 class="section-title">Quality panels, properly mounted.</h2>
+      <p>
+        We supply and install high-efficiency photovoltaic modules for rooftops, factories and
+        open land. Mounting structures are engineered for wind loads and roof type, cabling is
+        routed and protected to industrial standards, and every installation is commissioned with
+        performance testing — because a solar plant only earns its keep when it produces for
+        twenty-five years.
+      </p>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/solar/panels-closeup.jpg') }}"
+             alt="Close-up view of modern solar panels on a rooftop against a clear sky"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container solution-detail solution-detail--flip">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">On-Grid Systems</p>
+      <h2 class="section-title">Cut your electricity bill with grid-tied solar.</h2>
+      <p>
+        Grid-connected solar is the most economical route for customers with reliable supply.
+        We design the array against your consumption profile, handle net-metering documentation
+        and statutory approvals, and integrate monitoring so you can watch your savings in real
+        time. Ideal for factories, schools, commercial buildings and large homes.
+      </p>
+      <ul class="check-list" role="list">
+        <li>{{ icon('check') }} Net-metering &amp; approval support</li>
+        <li>{{ icon('check') }} Generation monitoring</li>
+        <li>{{ icon('check') }} Rapid payback design</li>
+      </ul>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/solar/industrial-rooftop.jpg') }}"
+             alt="Aerial view of a large industrial rooftop solar array"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container solution-detail">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">Off-Grid Systems</p>
+      <h2 class="section-title">Independent power, wherever the grid ends.</h2>
+      <p>
+        Where supply is unreliable or absent, off-grid solar delivers genuine independence.
+        We size the array and battery bank to your load, add hybrid control with generator
+        integration where needed, and build systems that ride through monsoon weeks — farms,
+        resorts, remote facilities and homes that refuse to sit in the dark.
+      </p>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/solar/home.jpg') }}"
+             alt="Solar panels on a suburban home surrounded by greenery"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container solution-detail solution-detail--flip">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">Solar Water Pumps</p>
+      <h2 class="section-title">Water by daylight, without diesel.</h2>
+      <p>
+        Solar pumping replaces fuel logistics and grid anxiety for agriculture and estate use.
+        We supply DC and AC pump systems matched to borewell depth and irrigation need, with
+        sturdy structures, controller protection and optional remote monitoring. Pump when the
+        sun shines; store water, not fuel.
+      </p>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/solar/detail.jpg') }}"
+             alt="Detailed view of solar panels capturing sunlight"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container solution-detail">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">Solar EPC</p>
+      <h2 class="section-title">Turnkey execution, single responsibility.</h2>
+      <p>
+        As an EPC contractor we take full engineering-procurement-construction responsibility:
+        site survey, yield simulation, design, approvals, procurement, installation, testing and
+        handover — with a single point of accountability from first visit to first unit generated.
+        Our completed and ongoing solar projects across Tamil Nadu reflect that discipline.
+      </p>
+      <a class="btn btn--dark" href="{{ url_for('main.projects') }}">See Our Projects</a>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/solar/farm.jpg') }}"
+             alt="A large solar panel array in an open green field"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sand">
+  <div class="container">
+    <div class="service-closing" data-reveal>
+      <div class="service-closing__head">
+        <p class="eyebrow">Maintenance &amp; Service</p>
+        <h2 class="section-title">Solar that stays at its peak.</h2>
+        <p>
+          Dust, shading and component ageing quietly erode generation. Our service teams keep
+          arrays clean, connections tight and inverters healthy through periodic cleaning,
+          preventive inspection and performance audits — available as annual maintenance
+          contracts for systems we and others have installed.
+        </p>
+      </div>
+      <div class="service-closing__actions">
+        <a class="btn btn--dark" href="{{ url_for('main.contact') }}">Request Solar Service</a>
+        <a class="btn btn--glass" href="{{ catalogue_url }}" rel="noopener">Panel Catalogue</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

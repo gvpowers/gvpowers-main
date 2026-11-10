@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block page_id %}projects{% endblock %}
+{% block title %}Projects — Solar Portfolio &amp; India Map | GV POWERS{% endblock %}
+{% block description %}Explore GV POWERS project locations across India: 10 completed and 4 ongoing solar projects, plus Chennai and Salem service coverage in Tamil Nadu.{% endblock %}
+
+{% block content %}
+{# ================= PROJECTS HERO (image-free brand band) ================= #}
+<section class="projects-hero">
+  <div class="container">
+    <p class="eyebrow" data-reveal>Our Projects</p>
+    <h1 class="section-title" data-reveal data-reveal-delay="90">Solar work, built to last.</h1>
+    <p class="projects-hero__text" data-reveal data-reveal-delay="180">
+      Rooftop arrays, industrial solar and complete EPC execution — delivered
+      the same disciplined way since 1997.
+    </p>
+  </div>
+</section>
+
+{# ================= PROJECT STATISTICS (dynamic, admin-managed) ================= #}
+<section class="section projects-stats-section" aria-label="Project statistics">
+  <div class="container">
+    <div class="projects-stats" data-reveal>
+      <div class="projects-stat">
+        <strong>{{ counts.solar.completed }}</strong>
+        <span class="projects-stat__label">Completed<br>solar projects</span>
+      </div>
+
+      <div class="projects-stat">
+        <strong>{{ counts.solar.ongoing }}</strong>
+        <span class="projects-stat__label">Ongoing<br>solar projects</span>
+      </div>
+
+      <div class="projects-stat">
+        <strong class="projects-stat__text">Tamil Nadu</strong>
+        <span class="projects-stat__label">Service area<br>Chennai · Salem &amp; beyond</span>
+      </div>
+    </div>
+
+    <p class="projects-note" data-reveal>
+      {{ icon('eye') }} Detailed project profiles — client references, system
+      details and site visits — are available on request. We publish numbers
+      and verified locations only, never unverified claims.
+    </p>
+  </div>
+</section>
+
+{# ================= INTERACTIVE INDIA MAP ================= #}
+<section class="section section--sand map-section" id="project-map" aria-label="Interactive project map">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Map</p>
+      <h2 class="section-title">Project locations across India.</h2>
+      <p class="map-subtitle">Click a marker for project details. Filter by status or category.</p>
+    </div>
+
+    <div class="map-toolbar" data-reveal>
+      <div class="map-filters" role="group" aria-label="Filter map markers">
+        <button type="button" class="map-chip is-active" data-map-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="map-chip" data-map-filter="completed" aria-pressed="false">Completed</button>
+        <button type="button" class="map-chip" data-map-filter="ongoing" aria-pressed="false">Ongoing</button>
+        <button type="button" class="map-chip" data-map-filter="solar" aria-pressed="false">Solar</button>
+        <button type="button" class="map-chip" data-map-filter="ups" aria-pressed="false">UPS</button>
+        <button type="button" class="map-chip" data-map-filter="generators" aria-pressed="false">Generators</button>
+      </div>
+      <span class="map-count" id="map-count" data-label-single="location shown" data-label-plural="locations shown">0 locations shown</span>
+    </div>
+
+    <div class="map-shell glass-card" data-reveal>
+      <div id="gvp-map" class="gvp-map" aria-label="Map of India showing GV Powers project locations"></div>
+      <div class="map-loading" id="map-loading">
+        <span class="map-loading__ring" aria-hidden="true"></span>
+        Loading map…</div>
+      <div class="map-empty" id="map-empty" hidden>
+        <span class="glass-icon glass-icon--dark">{{ icon('map-pin') }}</span>
+        <p>Our project locations are being updated. Contact GV POWERS for project information.</p>
+      </div>
+      <p class="map-locations-note glass-card">
+        <strong>Operating locations:</strong> Chennai &amp; Salem, Tamil Nadu
+        <span>(company offices — not automatic project sites)</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+{# ================= CTA ================= #}
+<section class="section">
+  <div class="container">
+    <div class="service-closing" data-reveal>
+      <div class="service-closing__head">
+        <p class="eyebrow">Your Project</p>
+        <h2 class="section-title">Planning solar? Let's survey your site.</h2>
+        <p>Our EPC team handles everything — survey, design, approvals, installation and lifetime service.</p>
+      </div>
+      <div class="service-closing__actions">
+        <a class="btn btn--dark" href="{{ url_for('main.contact') }}">Start a Conversation</a>
+        <a class="btn btn--glass" href="{{ catalogue_url }}" rel="noopener">Panel Catalogue</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts_extra %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet/leaflet.css') }}">
+  <script src="{{ url_for('static', filename='vendor/leaflet/leaflet.js') }}" defer></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+  <script src="{{ url_for('static', filename='js/map.js') }}" defer></script>
+{% endblock %}

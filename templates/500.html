@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block page_id %}error{% endblock %}
+{% block title %}Something Went Wrong — GV POWERS{% endblock %}
+{% block description %}An unexpected error occurred. Please try again.{% endblock %}
+
+{% block content %}
+<section class="section error-section">
+  <div class="container">
+    <div class="glass-card error-card" data-reveal>
+      <span class="glass-icon glass-icon--dark">{{ icon('gauge') }}</span>
+      <h1 class="error-code">500</h1>
+      <p class="error-message">Something tripped on our side. Our engineers are on it — please try again in a moment.</p>
+      <div class="error-actions">
+        <a class="btn btn--dark" href="{{ url_for('main.index') }}">Back to Home</a>
+        <a class="btn btn--glass" href="tel:+91{{ company.phone_primary }}">Call Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

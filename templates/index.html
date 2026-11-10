@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block page_id %}home{% endblock %}
+{% block title %}GV POWERS — Powering A Better Tomorrow | Solar, UPS &amp; Generators since 1997{% endblock %}
+{% block description %}GV POWERS, established 1997 in Tamil Nadu, delivers dependable solar energy, UPS systems and generators for homes, businesses and industries. 1,250+ UPS and 1,800+ generators sold.{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json" nonce="{{ g.csp_nonce }}">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "GV Powers",
+  "alternateName": "GV POWERS",
+  "description": "Solar, UPS and generator solutions provider for homes, businesses and industries, established in 1997.",
+  "url": "{{ site_url }}",
+  "email": "{{ company.email }}",
+  "telephone": "+91{{ company.phone_primary }}",
+  "foundingDate": "1997",
+  "slogan": "Powering A Better Tomorrow",
+  "image": "{{ site_url }}/static/images/hero/hero-solar.jpg",
+  "openingHours": "{{ company.hours_schema }}",
+  "areaServed": ["Chennai", "Salem", "Tamil Nadu"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+  "knowsAbout": ["Solar Energy", "UPS Systems", "Diesel Generators", "Battery Energy Storage"]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+{# ================= HERO — content sits in the balanced left section ================= #}
+<section class="hero" id="home">
+  <picture class="hero__media" data-parallax>
+    <source type="image/jpeg" srcset="{{ url_for('static', filename='images/hero/hero-solar.jpg') }}">
+    <img src="{{ url_for('static', filename='images/hero/hero-solar.jpg') }}"
+         alt="Solar panels beneath a vibrant sunset sky" width="2400" height="1350"
+         fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hero__overlay" aria-hidden="true"></div>
+
+  <div class="container hero__content">
+    <p class="hero__eyebrow" data-reveal>Energy · Engineering · Trust</p>
+    <h1 class="hero__title" data-reveal data-reveal-delay="90">
+      Powering a<br>Better&nbsp;Tomorrow.
+    </h1>
+    <p class="hero__lede" data-reveal data-reveal-delay="180">
+      Reliable solar, UPS and generator solutions for homes, businesses and industries.
+    </p>
+    <div class="hero__actions" data-reveal data-reveal-delay="270">
+      <a class="btn btn--primary" href="{{ url_for('main.solutions') }}">Explore Our Solutions</a>
+      <a class="btn btn--glass" href="{{ url_for('main.about') }}">Our Story</a>
+    </div>
+  </div>
+
+  <a class="hero__scroll-cue" href="#service-cards" aria-label="Scroll down to our services">
+    {{ icon('chevron-down') }}
+  </a>
+</section>
+
+{# ================= SERVICE CARDS — typographic, no pictograms ================= #}
+<section class="services" id="service-cards" aria-label="Our main business divisions">
+  <div class="container">
+    <div class="services__grid">
+      <a class="glass-card service-card" href="{{ url_for('main.solar') }}" data-reveal>
+        <span class="service-card__body">
+          <span class="service-card__title">Solar</span>
+          <span class="service-card__desc">Panels · On-grid · Off-grid · EPC</span>
+        </span>
+        <span class="glass-arrow" aria-hidden="true">{{ icon('arrow-right') }}</span>
+      </a>
+
+      <a class="glass-card service-card" href="{{ url_for('main.ups') }}" data-reveal data-reveal-delay="110">
+        <span class="service-card__body">
+          <span class="service-card__title">UPS</span>
+          <span class="service-card__desc">Online · Offline · Industrial</span>
+        </span>
+        <span class="glass-arrow" aria-hidden="true">{{ icon('arrow-right') }}</span>
+      </a>
+
+      <a class="glass-card service-card" href="{{ url_for('main.generators') }}" data-reveal data-reveal-delay="220">
+        <span class="service-card__body">
+          <span class="service-card__title">Generators</span>
+          <span class="service-card__desc">Diesel · Silent · Installation</span>
+        </span>
+        <span class="glass-arrow" aria-hidden="true">{{ icon('arrow-right') }}</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{# ================= STATISTICS — editorial numbers, no icons ================= #}
+<section class="stats-section" aria-label="Company statistics">
+  <div class="container">
+    <div class="stats-panel" data-reveal>
+      {% for s in stats %}
+        <div class="stat">
+          <span class="stat__value" data-count="{{ s.value }}" data-display="{{ s.display }}">{{ s.display }}</span>
+          <span class="stat__label">{{ s.label }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ================= COMPANY INTRODUCTION ================= #}
+<section class="section intro">
+  <div class="container intro__grid">
+    <div class="intro__copy" data-reveal>
+      <p class="eyebrow">Since 1997</p>
+      <h2 class="section-title">Nearly three decades of power, engineered with trust.</h2>
+      <p>
+        GV POWERS has spent close to thirty years keeping Tamil Nadu running — designing, supplying
+        and maintaining the systems that homes, businesses and industries depend on every day.
+        From rooftop solar and complete EPC execution to online UPS and silent diesel generators,
+        every solution is backed by hands-on engineering and responsive service.
+      </p>
+      <ul class="check-list" role="list">
+        <li>{{ icon('check') }} Solar EPC — on-grid, off-grid and water pumps</li>
+        <li>{{ icon('check') }} UPS systems — online, offline and industrial</li>
+        <li>{{ icon('check') }} Generators — diesel, silent, installation &amp; AMC</li>
+        <li>{{ icon('check') }} Serving Chennai and Salem and beyond</li>
+      </ul>
+      <a class="btn btn--dark" href="{{ url_for('main.about') }}">Discover Our Story</a>
+    </div>
+    <div class="intro__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/about/team.jpg') }}"
+             alt="GV Powers engineers operating a control panel in an industrial facility"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+      <div class="floating-badge glass-card">
+        <span class="floating-badge__text">
+          <strong>Established 1997</strong>
+          <span>Trusted since day one</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ================= SOLUTIONS OVERVIEW ================= #}
+<section class="section solutions-overview">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">What We Do</p>
+      <h2 class="section-title">Three divisions. One promise: power that works.</h2>
+    </div>
+
+    <div class="solutions-grid">
+      <a class="glass-card solution-tile" href="{{ url_for('main.solar') }}" data-reveal>
+        <h3>Solar Energy</h3>
+        <p>Panels, on-grid and off-grid systems, solar water pumps and turnkey EPC — engineered for maximum lifetime yield.</p>
+        <span class="tile-link">Explore Solar {{ icon('arrow-up-right') }}</span>
+      </a>
+
+      <a class="glass-card solution-tile" href="{{ url_for('main.ups') }}" data-reveal data-reveal-delay="110">
+        <h3>UPS Systems</h3>
+        <p>Online, offline and industrial UPS with batteries, installation, AMC and responsive service support.</p>
+        <span class="tile-link">Explore UPS {{ icon('arrow-up-right') }}</span>
+      </a>
+
+      <a class="glass-card solution-tile" href="{{ url_for('main.generators') }}" data-reveal data-reveal-delay="220">
+        <h3>Generators</h3>
+        <p>Diesel and silent generators with professional installation, servicing and annual maintenance contracts.</p>
+        <span class="tile-link">Explore Generators {{ icon('arrow-up-right') }}</span>
+      </a>
+    </div>
+
+    <div class="catalogue-strip glass-card" data-reveal>
+      <div class="catalogue-strip__text">
+        <h3>Browse the full product catalogue</h3>
+        <p>Products, specifications and pricing live on our dedicated catalogue platform.</p>
+      </div>
+      <a class="btn btn--dark" href="{{ catalogue_url }}" rel="noopener">Open Catalogue {{ icon('external') }}</a>
+    </div>
+  </div>
+</section>
+
+{# ================= WHY CHOOSE ================= #}
+<section class="section why-us">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Why GV POWERS</p>
+      <h2 class="section-title">The partner behind your power.</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feature glass-card" data-reveal>
+        <h3>Experience since 1997</h3>
+        <p>Nearly three decades of real-world power engineering across Tamil Nadu.</p>
+      </div>
+      <div class="feature glass-card" data-reveal data-reveal-delay="100">
+        <h3>End-to-end delivery</h3>
+        <p>From survey and design to installation, commissioning and after-sales care.</p>
+      </div>
+      <div class="feature glass-card" data-reveal data-reveal-delay="200">
+        <h3>Service &amp; AMC</h3>
+        <p>Preventive maintenance contracts and rapid support keep systems running.</p>
+      </div>
+      <div class="feature glass-card" data-reveal data-reveal-delay="300">
+        <h3>Chennai &amp; Salem</h3>
+        <p>Two operating locations with teams that understand local conditions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ================= COVERAGE / CONTACT CTA ================= #}
+<section class="section coverage">
+  <div class="container">
+    <div class="coverage-panel" data-reveal>
+      <div class="coverage-panel__inner">
+        <div class="coverage-panel__copy">
+          <p class="eyebrow eyebrow--light">Service Coverage</p>
+          <h2 class="section-title section-title--light">Chennai &amp; Salem — and everywhere the grid meets the sun.</h2>
+          <p class="coverage-panel__text">Talk to our engineers about your power requirement — solar, UPS, generators or a complete energy strategy.</p>
+        </div>
+        <div class="coverage-panel__actions">
+          <a class="btn btn-consultation" href="{{ url_for('main.contact') }}">Request a Consultation</a>
+          <a class="btn btn--outline-light" href="tel:+91{{ company.phone_primary }}">{{ icon('phone') }} {{ company.phone_primary_display }}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

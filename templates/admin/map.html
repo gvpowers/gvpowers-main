@@ -1,0 +1,60 @@
+{% extends "_admin_shell.html" %}
+{% set active_nav = "map" %}
+{% block admin_page_title %}Map Management{% endblock %}
+{% block admin_page %}
+<h1 class="admin-h1">Map management</h1>
+<p class="admin-note">Full map view of every saved location. Shortcut to
+  <a href="{{ url_for('admin.projects') }}">project form</a> to add markers.</p>
+
+<div class="admin-map-tools">
+  <input class="admin-input" id="map-search" type="search" placeholder="Search by project name…">
+  <select class="admin-input" id="map-filter-state">
+    <option value="">All states</option>
+    {% for s in states %}<option value="{{ s }}">{{ s }}</option>{% endfor %}
+  </select>
+  <select class="admin-input" id="map-filter-category">
+    <option value="">All categories</option>
+    <option value="solar">Solar</option>
+    <option value="ups">UPS</option>
+    <option value="generators">Generators</option>
+    <option value="other">Other</option>
+  </select>
+  <select class="admin-input" id="map-filter-status">
+    <option value="">All statuses</option>
+    <option value="completed">Completed</option>
+    <option value="ongoing">Ongoing</option>
+  </select>
+  <a class="admin-btn" href="{{ url_for('admin.projects') }}">+ Add marker</a>
+</div>
+
+<div class="admin-split admin-split--map-first">
+  <div class="admin-map-shell glass-card">
+    <div id="adminMap" class="gvp-map" aria-label="All project locations"></div>
+    <p class="map-locations-note glass-card"><span id="admin-map-count"></span></p>
+  </div>
+  <div class="admin-list">
+    <h2 class="admin-h2">Locations <span class="admin-badge" id="admin-list-count">{{ projects|length }}</span></h2>
+    <ul class="admin-loc-list" id="admin-loc-list">
+      {% for p in projects %}
+      <li data-id="{{ p.id }}" data-name="{{ p.name|lower }}"
+          data-state="{{ p.state or '' }}" data-category="{{ p.category }}" data-status="{{ p.status }}">
+        <button type="button" class="admin-loc-item">
+          <span class="admin-pill admin-pill--{{ p.category }}">{{ p.category }}</span>
+          <strong>{{ p.name }}</strong>
+          <span class="admin-loc-place">{{ p.locality or p.district or p.state or '' }}</span>
+        </button>
+      </li>
+      {% else %}
+      <li class="admin-empty">No locations saved yet.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% block admin_scripts %}
+<link rel="stylesheet" href="{{ url_for('static', filename='vendor/leaflet/leaflet.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/map.css') }}">
+<script src="{{ url_for('static', filename='vendor/leaflet/leaflet.js') }}" defer></script>
+<script src="{{ url_for('static', filename='js/admin-map-manager.js') }}" defer></script>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block page_id %}ups{% endblock %}
+{% block title %}UPS Systems — Online, Offline &amp; Industrial | GV POWERS{% endblock %}
+{% block description %}Online, offline and industrial UPS systems, batteries, installation, AMC and servicing from GV POWERS. 1,250+ UPS sold since 1997.{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero--short">
+  <picture class="page-hero__media">
+    <img src="{{ url_for('static', filename='images/ups/install.jpg') }}"
+         alt="Technician working on the installation of a residential battery system"
+         width="1600" height="900" loading="eager" decoding="async">
+  </picture>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="container page-hero__content">
+    <p class="eyebrow eyebrow--light" data-reveal>UPS Systems</p>
+    <h1 class="page-hero__title" data-reveal data-reveal-delay="90">Uninterrupted power,<br>zero compromise.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container solution-detail">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">Online UPS</p>
+      <h2 class="section-title">Double-conversion protection for critical loads.</h2>
+      <p>
+        For servers, medical equipment, control rooms and precision machinery, online
+        double-conversion UPS delivers perfectly regulated power with zero transfer time.
+        We specify, size and install systems with the right runtime, redundancy and battery
+        configuration — then keep them healthy through scheduled preventive maintenance.
+      </p>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/ups/inverter-install.jpg') }}"
+             alt="Technician installing a solar inverter and battery system"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container solution-detail solution-detail--flip">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">Offline UPS</p>
+      <h2 class="section-title">Dependable backup for everyday equipment.</h2>
+      <p>
+        Offices, shops, labs and homes need clean switchover without the cost of online
+        topology. Offline and line-interactive UPS protect desktops, POS systems, networking
+        and household essentials from outages and voltage swings — a cost-effective shield we
+        stock across popular capacities.
+      </p>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/ups/service.jpg') }}"
+             alt="Electrician using a multimeter on industrial equipment"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container solution-detail">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">Industrial UPS</p>
+      <h2 class="section-title">Hardened power for demanding environments.</h2>
+      <p>
+        Factories, process lines and infrastructure demand UPS built for harsh electrical
+        environments. We supply and maintain industrial-grade systems with robust inverters,
+        extended battery banks and service access designed around production schedules —
+        engineered to trip nothing but the failure itself.
+      </p>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/ups/panel.jpg') }}"
+             alt="Technician repairing an electrical control panel in an industrial setting"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container solution-detail solution-detail--flip">
+    <div class="solution-detail__copy" data-reveal>
+      <p class="eyebrow">Batteries</p>
+      <h2 class="section-title">The right battery, properly maintained.</h2>
+      <p>
+        A UPS is only as reliable as its batteries. We supply quality battery banks matched to
+        each system, test load and autonomy annually, replace ageing cells on schedule and
+        dispose of spent batteries responsibly — so backup capacity is real when the power
+        actually fails.
+      </p>
+    </div>
+    <div class="solution-detail__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/ups/battery.jpg') }}"
+             alt="Electrician installing a home energy battery storage unit"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sand">
+  <div class="container">
+    <div class="service-closing" data-reveal>
+      <div class="service-closing__head">
+        <p class="eyebrow">AMC &amp; Servicing</p>
+        <h2 class="section-title">Annual maintenance that pays for itself.</h2>
+        <p>
+          Our AMC programmes cover preventive visits, battery testing, firmware and settings
+          review, thermal checks and priority breakdown response. With 1,250+ UPS units sold
+          since 1997, our service bench has seen — and fixed — almost everything.
+        </p>
+      </div>
+      <div class="service-closing__actions">
+        <a class="btn btn--dark" href="{{ url_for('main.contact') }}">Request UPS Service</a>
+        <a class="btn btn--glass" href="{{ catalogue_url }}" rel="noopener">UPS Catalogue</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

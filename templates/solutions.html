@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block page_id %}solutions{% endblock %}
+{% block title %}Solutions — Solar, UPS &amp; Generators | GV POWERS{% endblock %}
+{% block description %}Explore GV POWERS' business divisions: solar energy, UPS systems, generators and battery energy storage — engineered and serviced from Chennai and Salem.{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero--short">
+  <picture class="page-hero__media">
+    <img src="{{ url_for('static', filename='images/solar/farm.jpg') }}"
+         alt="A large solar panel array in an open green field" width="1600" height="900" loading="eager" decoding="async">
+  </picture>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="container page-hero__content">
+    <p class="eyebrow eyebrow--light" data-reveal>Our Solutions</p>
+    <h1 class="page-hero__title" data-reveal data-reveal-delay="90">Complete power,<br>under one roof.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container solutions-list">
+    <a class="solutions-row glass-card" href="{{ url_for('main.solar') }}" data-reveal>
+      <span class="solutions-row__body">
+        <h2>Solar Energy</h2>
+        <p>Panels · On-grid · Off-grid · Water pumps · EPC · Maintenance</p>
+      </span>
+      <span class="glass-arrow" aria-hidden="true">{{ icon('arrow-right') }}</span>
+    </a>
+
+    <a class="solutions-row glass-card" href="{{ url_for('main.ups') }}" data-reveal data-reveal-delay="90">
+      <span class="solutions-row__body">
+        <h2>UPS Systems</h2>
+        <p>Online · Offline · Industrial · Batteries · AMC · Servicing</p>
+      </span>
+      <span class="glass-arrow" aria-hidden="true">{{ icon('arrow-right') }}</span>
+    </a>
+
+    <a class="solutions-row glass-card" href="{{ url_for('main.generators') }}" data-reveal data-reveal-delay="180">
+      <span class="solutions-row__body">
+        <h2>Generators</h2>
+        <p>Diesel · Silent · Installation · Servicing · AMC</p>
+      </span>
+      <span class="glass-arrow" aria-hidden="true">{{ icon('arrow-right') }}</span>
+    </a>
+  </div>
+</section>
+
+<section class="section section--tinted" id="battery-storage">
+  <div class="container bess">
+    <div class="bess__copy" data-reveal>
+      <p class="eyebrow">Battery Energy Storage</p>
+      <h2 class="section-title">Store the sun. Outlast the outage.</h2>
+      <p>
+        Battery energy storage completes a modern power system — capturing solar generation for
+        evening use, smoothing out outages and reducing diesel run-hours. We design and install
+        storage alongside new or existing solar and UPS infrastructure, sized to your actual
+        consumption pattern rather than a generic template.
+      </p>
+      <ul class="check-list" role="list">
+        <li>{{ icon('check') }} Hybrid solar + storage design</li>
+        <li>{{ icon('check') }} Battery backup for critical loads</li>
+        <li>{{ icon('check') }} Integration with existing UPS &amp; generators</li>
+      </ul>
+      <a class="btn btn--dark" href="{{ url_for('main.contact') }}">Discuss a Storage System</a>
+    </div>
+    <div class="bess__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/ups/battery.jpg') }}"
+             alt="Electrician installing a home energy battery storage unit"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="catalogue-strip glass-card" data-reveal>
+      <div class="catalogue-strip__text">
+        <h3>Looking for specific products &amp; pricing?</h3>
+        <p>Our full product catalogue — specifications, models and prices — lives on its own platform.</p>
+      </div>
+      <a class="btn btn--dark" href="{{ catalogue_url }}" rel="noopener">Open Catalogue {{ icon('external') }}</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

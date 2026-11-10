@@ -1,0 +1,24 @@
+{% extends "_admin_base.html" %}
+{% block admin_title %}Admin Sign-in — GV POWERS{% endblock %}
+{% block admin_content %}
+<section class="admin-login">
+  <div class="glass-card admin-login__card">
+    <img class="admin-login__logo" src="{{ url_for('static', filename='images/branding/logo-full.png') }}"
+         alt="GV Powers" width="320" height="250">
+    <h1>Administrator access</h1>
+    <p class="admin-login__hint">Enter the administrator password to manage the website.</p>
+
+    {% if error %}<p class="admin-alert admin-alert--error" role="alert">{{ error }}</p>{% endif %}
+
+    <form method="post" action="{{ url_for('admin.login', next=request.args.get('next')) }}">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+      <label class="admin-label" for="admin-password">Password</label>
+      <input class="admin-input" type="password" id="admin-password" name="password"
+             autocomplete="current-password" required autofocus>
+
+      <button class="btn btn--dark admin-submit" type="submit">Sign in</button>
+    </form>
+    <a class="admin-backlink" href="{{ url_for('main.index') }}">&larr; Back to website</a>
+  </div>
+</section>
+{% endblock %}

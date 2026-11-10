@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block page_id %}about{% endblock %}
+{% block title %}About Us — GV POWERS | Energy Solutions since 1997{% endblock %}
+{% block description %}GV POWERS has delivered solar, UPS and generator solutions since 1997 from Chennai and Salem, Tamil Nadu. Learn about our history, mission, vision and values.{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <picture class="page-hero__media">
+    <img src="{{ url_for('static', filename='images/about/substation.jpg') }}"
+         alt="Engineer at an electrical substation" width="1600" height="900" loading="eager" decoding="async">
+  </picture>
+  <div class="page-hero__overlay" aria-hidden="true"></div>
+  <div class="container page-hero__content">
+    <p class="eyebrow eyebrow--light" data-reveal>About GV POWERS</p>
+    <h1 class="page-hero__title" data-reveal data-reveal-delay="90">A legacy of power,<br>built since 1997.</h1>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container about-story">
+    <div class="about-story__copy" data-reveal>
+      <p class="eyebrow">Who We Are</p>
+      <h2 class="section-title">An energy partner Tamil Nadu has trusted for nearly three decades.</h2>
+      <p>
+        GV POWERS is an established energy and power solutions company operating from
+        <strong>Chennai</strong> and <strong>Salem</strong>, Tamil Nadu. Since our founding in
+        <strong>1997</strong>, we have focused on one thing — keeping our customers powered through
+        dependable engineering, honest advice and service they can count on.
+      </p>
+      <p>
+        Over the years our work has grown from power backup into complete energy solutions:
+        rooftop and ground-mounted solar with turnkey EPC execution, online and industrial UPS
+        systems, and diesel and silent generators. More than <strong>1,250 UPS units</strong> and
+        <strong>1,800 generators</strong> sold, alongside a growing portfolio of solar projects,
+        reflect the trust our customers place in us.
+      </p>
+      <p>
+        We deliberately stay close to our customers. Our engineers survey every site, design for
+        real operating conditions, and remain available long after commissioning through service
+        visits and annual maintenance contracts. That relationship-first approach is why so much of
+        our work comes from customers who have been with us for years.
+      </p>
+    </div>
+    <div class="about-story__media" data-reveal data-reveal-delay="150">
+      <figure class="framed-image">
+        <img src="{{ url_for('static', filename='images/about/engineer.jpg') }}"
+             alt="GV Powers engineer working on an outdoor electrical panel"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+      <figure class="framed-image framed-image--small">
+        <img src="{{ url_for('static', filename='images/ups/panel.jpg') }}"
+             alt="Technician repairing an electrical control panel"
+             width="1600" height="1067" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tinted">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Mission &amp; Vision</p>
+      <h2 class="section-title">What drives us forward.</h2>
+    </div>
+    <div class="mv-grid">
+      <div class="glass-card mv-card" data-reveal>
+        <h3>Our Mission</h3>
+        <p>To deliver reliable, well-engineered power solutions — solar, UPS and generation — that protect our customers' work and daily life, backed by service that responds when it matters.</p>
+      </div>
+      <div class="glass-card mv-card" data-reveal data-reveal-delay="120">
+        <h3>Our Vision</h3>
+        <p>To be the energy partner of choice across Tamil Nadu, helping homes and industries transition to cleaner, more resilient power without compromising on dependability.</p>
+      </div>
+      <div class="glass-card mv-card" data-reveal data-reveal-delay="240">
+        <h3>Our Philosophy</h3>
+        <p>Recommend what the customer actually needs. Install it properly. Stand behind it for years. Trust is our most valuable asset — and our oldest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Core Values</p>
+      <h2 class="section-title">Principles we build into every project.</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value" data-reveal>
+        <div><h3>Dependability</h3><p>Systems specified to perform, installed to last, supported for life.</p></div>
+      </div>
+      <div class="value" data-reveal data-reveal-delay="90">
+        <div><h3>Engineering first</h3><p>Every solution starts with a proper survey and honest load analysis.</p></div>
+      </div>
+      <div class="value" data-reveal data-reveal-delay="180">
+        <div><h3>Customer commitment</h3><p>Responsive service, 9 AM to 9 PM, from people who know your system.</p></div>
+      </div>
+      <div class="value" data-reveal data-reveal-delay="270">
+        <div><h3>Cleaner tomorrow</h3><p>Helping customers adopt solar and storage with confidence.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sand">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <p class="eyebrow">Where We Operate</p>
+      <h2 class="section-title">Chennai &amp; Salem.</h2>
+    </div>
+    <div class="locations-grid">
+      <div class="glass-card location-card" data-reveal>
+        <h3>Chennai</h3>
+        <p>Serving homes, commercial establishments and industries across the Chennai region.</p>
+        <p class="location-card__meta">{{ icon('clock') }} {{ company.hours }}</p>
+      </div>
+      <div class="glass-card location-card" data-reveal data-reveal-delay="120">
+        <h3>Salem</h3>
+        <p>Our Salem base anchors solar EPC projects and generator services across western Tamil Nadu.</p>
+        <p class="location-card__meta">{{ icon('clock') }} {{ company.hours }}</p>
+      </div>
+    </div>
+    <div class="cta-band" data-reveal>
+      <h3>Ready to talk power?</h3>
+      <div class="cta-band__actions">
+        <a class="btn btn--dark" href="{{ url_for('main.contact') }}">Contact Us</a>
+        <a class="btn btn--glass" href="{{ catalogue_url }}" rel="noopener">Browse Catalogue</a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
